@@ -1,47 +1,102 @@
-# Cue Tracker one-sheet schematic decision log
+# Cue Tracker hierarchical-hardware decision log
 
-Date: 2026-07-14
+Date: 2026-07-15
 
-This log records the intended implementation of the current single-sheet design. Starting component values still require PCB-stage validation where noted.
+This log records the target implementation for the rear-main/front-sensor redesign. Values described as nominal, starting, proposed or validation-dependent are not production limits until verified on assembled hardware. Final schematic, netlist, ERC and rendered-sheet readback remain the implementation authority.
+
+## Architecture and interface decisions
 
 | Decision | Selected implementation | Reason / status |
 |---|---|---|
-| MCU | U3 ESP32-S3R8 bare QFN56 | Provides the required 8 MB in-package octal PSRAM; no module is used |
-| Application flash | U4 W25Q128JVSIQ, SOIC-8, 16 MB QSPI | External application storage on the ESP32-S3 dedicated flash interface. U3's dedicated 3.3 V `VDD_SPI` output supplies U4 and the memory I/O domain; no separate +3V3 feed is required or intended |
-| Main 3.3 V regulator | U5 TPS63802DLAR | True buck-boost operation over a 1S LiPo discharge curve; TI specifies 2 A at 3.3 V for input at or above 2.3 V |
-| System-current policy | At least 500 mA rail capability; approximately 200 mA average target | Espressif requires a supply capable of at least 500 mA and lists radio peaks up to about 340 mA. The 200 mA figure is an operating/firmware target, not a regulator limit |
-| USB-C source detection | TUSB320LAIRWBR in fixed-UFP/I2C mode | Reports Type-C attachment, orientation and advertised default/1.5 A/3 A current. It is not USB PD and does not configure the charger automatically |
-| Charger and power path | U7 BQ25611DRTWR switch-mode 1S charger with NVDC power path | Provides the required higher-efficiency charger/system path while ESP32 retains the native USB data pair; the charger's D+/D- detector is intentionally unused |
-| Charger fail-safe and settings | R20 pulls `/CHG_CE_N` high; firmware programs U7 for ICHG 180 mA, precharge 60 mA, termination 60 mA, VREG 4.190 V and source-safe IINDPM before GPIO3 drives CE low | Charging stays disabled through ESP32 reset/high-impedance. Reset register values are not accepted as a safe operating configuration; current advertisement is read from TUSB320LAI before any IINDPM increase |
-| Fuel gauge and voltage fallback | U14 BQ27427YZFR populated by default; JP1 is a mutually exclusive DNP bypass | Provides coulomb counting through its integrated 7 mOhm sense path. If U14 is omitted, close JP1 and use U9 TPS22919 with R25 100 kOhm ON pull-down, R23/R24 and C34 as a voltage-only ESP32 ADC fallback; never populate U14 and close JP1 together |
-| Independent battery protection | U10 BQ298217RUGR + CSD87313DMS + R44 WSL2512R0600FEA 60 mOhm, 1%, 1 W | Fixed 4.250 V OVP / 2.600 V UVP and nominal 0.60 A charge, 1.00 A discharge and 3.33 A short-current thresholds. The selected TI FET is active/production and meets the low-leakage requirement |
-| Protection-FET land and compliance | Project-specific `TI_CSD87313DMS_DMS8_3.3x3.3mm` footprint; RoHS review required | TI pages 10-11/recommended pattern 4222980/A define the DMS land. CAD-only exposed lands 9/10 are S1/S2; a standard KiCad VSON footprint is incompatible. TI lists the part RoHS Exempt despite active/production lifecycle |
-| Cell and temperature connection | Pre-tabbed 18650 default, pre-tabbed 21700 alternate; BT1 cell pads and DNP-at-PCBA TH1 NTC pads | There is no removable battery connector. BT1 accepts the pre-welded cell/pack leads. TH1 remains as solder pads for a remote Semitec 103AT-2 10 kOhm NTC that is hand-wired and thermally bonded to the cell after PCBA; it is required unless a deliberate, validated `TS_IGNORE` configuration is used. Never solder directly to the cell can |
-| Power inductors | L2 Coilcraft XFL4015-471MEC 470 nH for TPS63802; L4 Eaton MPI4020V2-1R0-R 1 uH for BQ25611D | Keeps the live schematic references and exact manufacturer footprints; L2 and L4 are not interchangeable |
-| Main crystal | TXC 7M-40.000MEEQ-T | Exact 40 MHz candidate. Procurement must confirm the suffix/load-capacitance configuration, and load capacitors remain board-tuning values |
-| RF supply rail | `+3V3 -> 2.2 nH -> +3V3_RF`, with 10 uF plus 100 nF after the inductor | `+3V3_RF` is reserved for ESP32-S3 VDD3P3 pins 2/3. Espressif calls for an LC-fed analog/RF supply and warns of TX current steps; it is not an antenna-feed or general sensor rail |
-| Primary antenna | AE1 CrossAir CA-C03 placed as the populated baseline | The 5.5 x 2.0 x 1.0 mm 2.4 GHz ceramic antenna has its project symbol and footprint assigned. Board-edge keepout and final matching still require validation against the production stack-up and enclosure |
-| Evaluated antenna alternative | Kinghelm KH-3216-H0209 evaluation only; no placed schematic part | The smaller 3.23 x 1.66 x 0.45 mm PIFA/single-feed part has a different footprint, clearance and matching reference from CA-C03 and is not a drop-in substitute. It is not a current DNP component because no alternate antenna is placed |
-| RF matching | Espressif chip-side C-L-C reserve plus antenna-side pi provision | All values are starting values marked TUNE; final values require the actual PCB, battery, cue enclosure, VNA and OTA measurements |
-| USB | Native ESP32-S3 USB with 22 Ohm series resistors and one low-capacitance PESD5V0Y1BCSF per data line | Preserves ROM download and USB Serial/JTAG without a USB-UART bridge |
-| Main motion IMU | U12 LSM6DSV320XTR | Replaces the incorrect LSM6DSL; complete local supply and interface support is populated |
-| Impact sensor | U11 IIS3DWB10ISTR, 16-lead wettable-flank LLGA | Preserves continuous high-bandwidth vibration capture; the land pattern must be checked against ST package geometry and official reference CAD before production |
-| Environmental and magnetic sensors | U6 BMP581 and U8 MMC5983MA populated | Both are complete default-fit I2C blocks with their required local decoupling/support components |
-| Microphone and ADC | IM73A135V01 plus U13 TLV320ADC6120IRTER | Complete differential analog path: C51 100 nF and C52 1 uF support MICBIAS, while C55/C59 and R39/R43 provide the differential coupling into U13. I2C control and I2S output are retained; no separate op-amp or MCU ADC is required |
-| Debug connector | J2 Harwin M50-3600542R, 2x5 1.27 mm vertical SMD header | Retains direct recovery and firmware-debug access in an assembly-compatible SMD format; native USB remains the primary programming path and GPIO43/44 are used by sensor interrupts |
-| Ground symbol convention | `Earth` symbol used for the circuit return at the user's request | Electrically this is battery negative/system 0 V. The design has no protective-earth connection; PCB and safety documentation must not treat it as PE or chassis earth |
+| MCU | Espressif `ESP32-S3-PICO-1-N8R8` | Integrates the ESP32-S3, 8 MB flash, 8 MB octal PSRAM and 40 MHz crystal in a 7 x 7 mm SiP. The previous bare ESP32-S3R8, W25Q128 and external 40 MHz tuning network are removed. Use the official N8R8 pin contract; the supplied N8R2 archive is not valid symbol metadata for N8R8 even if package geometry is shared. |
+| RTC crystal | Retain the 32.768 kHz crystal on GPIO15/GPIO16 | The PICO SiP exposes and supports `XTAL_32K_P/N`, the pins are free, and lower-drift sleep/wake timing is useful for this battery instrument. Firmware must select it explicitly and tolerate startup failure. Validate load capacitance and standby benefit; DNP the crystal/capacitors only if measurement shows no benefit. |
+| Schematic partition | `CueTracker.kicad_sch` root with `rear_main.kicad_sch` and `front_sensor.kicad_sch` child sheets | Rear contains MCU, battery/power, audio, RF, USB and HMI. Front contains LSM6DSV320X, IIS3DWB10IS, MMC5983MA and BMP581. Hierarchical pins are the only cross-sheet electrical contract. |
+| Rigid-board interconnect | Same Hirose `FH34SRJ-24S-0.5SH(50)`, LCSC `C324726`, on both boards | Exact 24-position, 0.5 mm-pitch, 0.3 mm-FPC connector. The pin map in `gpio_allocation.md` is normative. Mechanical review must catch any cable/contact-side mirroring before layout release. |
+| Front sensor power | Two `+3V3_SENSOR` contacts, four Earth contacts and `SENSOR_PWR_EN` on the 24-pin link | R62, a 0-ohm link, gives the outgoing sensor supply a distinct reviewed net name; its single rear-side `PWR_FLAG` documents the otherwise invisible source through that passive link. Power and returns are interleaved around the two SPI groups. GPIO46 defaults low and enables the front load switch after boot. The front connector is not part of a 3 A battery/USB path. |
+| Main motion bus | LSM6DSV320X on four-wire SPI; clock and MOSI source shared with HMI | Preserves deterministic motion capture. Separate source-resistor branches reduce interaction between the front FPC and HMI cable. |
+| Impact bus | IIS3DWB10IS on its own four-wire SPI with both interrupt lines | Preserves continuous high-bandwidth vibration capture and avoids sharing its clock with display traffic. |
+| I2C link | SDA/SCL cross the 24-pin connector; one pull-up pair on rear | BMP581 and MMC5983MA reside on front; charger, Type-C controller, optional gauge and audio ADC reside on rear. Addresses must appear as schematic comments and be checked for conflicts. |
+| HMI target | 1.14-inch, 135 x 240, 3.3 V ST7789, four-wire SPI, no touch, on a daughterboard | Keeps the display replaceable and mechanically independent of the rear board. The project-defined eight-pin map is normative; raw panel FPC pin order is not assumed. |
+| HMI connector | `FH34SRJ-8S-0.5SH(50)` with `GND, 3V3_HMI, SCK, MOSI, RST_N, DC, CS_N, BL` | Provides the exact eight-signal rear-to-daughterboard interface. Confirm contact side and seller drawing before release. |
+| HMI signal conditioning | 10 uF + 1 uF + 100 nF on `+3V3_HMI`; 22-47 Ohm series resistors on SCK/MOSI; CS pull-up; explicit reset default; GPIO42-controlled MOSFET/load switch | Prevents reset-time display selection and limits cable edges. `LCD_BL/HMI_EN` defaults off. Component values are starting values for scope/EMI validation. |
+| Capture-mode display policy | No display SPI transaction or backlight/HMI-state change during `ARMED` and `SHOT_CAPTURE` | The LCD shares SCK/MOSI with the main-motion interface. Firmware leaves LCD CS inactive and the bus configuration unchanged until capture is complete. This is a hard firmware requirement, not an optimization. |
+| Debug and recovery | Native USB Serial/JTAG, BOOT and RESET; no physical JTAG header | GPIO39-GPIO42 are required for LCD CS/DC/reset/HMI enable. Native USB preserves programming and debug without consuming those pins. |
 
-## PCB/mechanical validation items
+## Power, battery and USB decisions
 
-1. Verify TPS63802 switching-loop layout, effective ceramic capacitance, thermal rise and 3.3 V droop during maximum ESP32-S3 radio activity with all acquisition blocks running.
-2. Measure the `+3V3_RF` rail at ESP32-S3 VDD3P3 pins 2/3 and confirm the post-inductor 10 uF plus 100 nF placement.
-3. Confirm the selected pre-tabbed 18650/21700 pulse capability, BT1 wire/pad rating and BQ25611D supplement behavior at cold temperature and near end of discharge.
-4. Validate the 180 mA fast-charge, 60 mA precharge/termination, 4.190 V regulation, IINDPM, NTC thresholds, CE-reset state and watchdog policy against the final cell data sheet.
-5. Verify the placed AE1 CA-C03 land, board-edge keepout and feed geometry before PCB release. KH-3216-H0209 remains an evaluated alternative only, not a placed DNP part or a drop-in replacement.
-6. After selecting and placing the antenna, VNA/OTA tune the ESP32 chip-side and antenna-side matching networks in the final cue enclosure. Reference-board values are not production tuning values.
-7. Confirm 50 Ohm controlled-impedance geometry from the final stack-up and fabrication tolerances.
-8. Validate the 40 MHz crystal load capacitors and series element on assembled hardware.
-9. Re-estimate I2C rise time/capacitance with all populated sensors, charger, gauge and audio ADC.
-10. Verify the CSD87313DMS DMS8 land/stencil, 9=S1 and 10=S2 exposed-pad mapping and Kelvin routing to the 60 mOhm R44; complete the RoHS Exempt review before release.
-11. Validate the BQ298217 thresholds over tolerance and temperature, including charger-inrush, supplement, overload and short-circuit cases.
-12. Preserve IIS3DWB10ISTR axis orientation near the rigid front cue insert and independently compare its footprint with official ST reference CAD before release.
+| Decision | Selected implementation | Reason / status |
+|---|---|---|
+| Reference cell | Samsung INR18650-35E, fixed/pre-tabbed architecture | Reference assumptions are a 1S cylindrical cell with factory-welded tabs. Tabs solder to plated PCB slots; a cradle carries mechanical loads. Never rely on solder joints for retention and never solder directly to the bare cell can. |
+| Temperature sensing | Remote 10 kOhm NTC solder pads, DNP at PCBA | The NTC is installed after assembly and thermally coupled to the cell. It remains required for normal charging unless a separately reviewed and validated charger configuration explicitly permits operation without it. |
+| Independent protection | BQ298217 + active CSD87313DMS dual FET + `WSL2512R0200FEA` 20 mOhm, 1%, 1 W, 2512-class shunt | Replaces the obsolete 60 mOhm value. Kelvin connections must originate at the shunt pads. Nominal targets are approximately 1.8 A charge overcurrent, 3.0 A discharge overcurrent and 10 A short circuit. Threshold tolerance, delay and temperature require validation. |
+| High-current path rating | At least 3 A normal design current from cell tabs through protector, shunt, bypass, charger/power path, regulator input and returns; fault-rated where protection energy flows | Includes copper width/thickness, vias, solder lands and any zero-ohm/bypass element. Fault transients must be checked against BQ298217 delay and FET SOA, not just continuous ampacity. |
+| Fuel gauge | BQ27427 retained as an optional, mutually exclusive build variant | Its integrated sense/current path is not the default choice for a 3 A-capable path because its continuous-current capability is approximately 2 A. The gauge-populated build must be limited to 2 A or less. |
+| Default 3 A gauge bypass | BQ27427 DNP; fit a dedicated at-least-3-A bypass/bridge | This is the default architecture that satisfies the 3 A current-path requirement. The bypass and BQ27427 must never be fitted together. A generic small 0 Ohm resistor is not acceptable unless its continuous and transient rating is demonstrated. |
+| Voltage-only fallback | Protected-pack switched divider to ESP32 ADC1, enabled by GPIO46 | Supplies battery-voltage telemetry in the default gauge-bypass build. GPIO46 also powers the front sensors, so a measurement is taken only while `SENSOR_PWR_EN` is high. This coupling is an explicit pin-budget assumption. |
+| Main 3.3 V regulator | TPS63802 buck-boost retained | Provides a 3.3 V rail across the useful 1S discharge curve and sufficient transient capability for ESP32-S3 radio peaks. The approximately 200 mA figure remains an average operating target, not the regulator or source limit. |
+| Charger/power path | BQ25611D retained | Switch-mode 1S charging plus NVDC power path. ESP32 owns the USB D+/D- pair; BQ25611D D+/D- are unused or test pads only. |
+| Charger reset policy | Charge disabled at reset through a transistor/open-drain CE stage | `/CE` is held high independently of MCU power. GPIO3 has a pull-down and asserts the transistor only after firmware has programmed and verified limits; do not restore the former direct GPIO pull-up scheme. |
+| Charger firmware defaults | 1.0 A normal R0 charge current; 1.5 A maximum only after thermal validation; OTG disabled | Firmware first disables charging and OTG, sets source-safe IINDPM and Samsung-compatible voltage/current limits, services the watchdog policy, then conditionally enables charging. The 1.5 A mode requires cell, NTC, enclosure and PCB validation. |
+| USB-C data ownership | USB-C D+/D- connect only to ESP32-S3 native USB through low-capacitance ESD and source resistors | Preserves ROM download and USB Serial/JTAG. BQ25611D USB detection pins never share this pair. |
+| Type-C CC control | TUSB320LAI in UFP/I2C mode | Reports attachment, orientation and advertised current. It is not USB Power Delivery and does not by itself authorize a charger current change. |
+| VBUS protection chain | Receptacle VBUS -> connector-adjacent ESD441-class TVS -> TPS25947-class 3 A eFuse/current limiter -> protected VBUS | Replaces every 500 mA PPTC assumption. Receptacle contacts, vias and VBUS copper must be suitable for 3 A. Final eFuse current limit, dV/dt, overvoltage and thermal values require hardware validation. |
+| CC ESD | Low-capacitance two-channel CC-rated ESD protection on CC1/CC2 | Protects TUSB320 inputs without placing USB-data protection on the CC pins. Keep the devices adjacent to the receptacle. |
+| Direct VBUS sensing | `VBUS_PRESENT` on GPIO48 through a powered-off-safe level translator, transistor or validated equivalent | Provides direct source-presence information while preventing 5 V injection into the MCU when +3V3 is absent. A raw 5 V GPIO connection is prohibited. |
+| Charger D+/D- policy | No functional connection; optional local test pads only | USB current policy comes from TUSB320/firmware rather than BQ25611 BC1.2 detection. Test pads must not stub the ESP32 data pair. |
+
+## Sensor, audio, RF and enclosure decisions
+
+| Decision | Selected implementation | Reason / status |
+|---|---|---|
+| Main motion IMU | LSM6DSV320XTR, populated on `front_sensor` | Correct high-g motion device, with local decoupling, SPI pull/default network and two interrupts routed through the 24-pin link. |
+| Impact sensor | IIS3DWB10ISTR, 16-lead wettable-flank LLGA, populated on `front_sensor` | High-bandwidth vibration capture. Verify land pattern, exposed-pad handling, axis orientation and assembly against official ST CAD before production. |
+| Magnetometer | MMC5983MA populated at the extreme front, `MMC_INT` retained | Maximizes distance from battery, power inductors and high-current loops. Use nonmagnetic fasteners and calibrate in the complete cue. |
+| Barometer | BMP581 populated, `BMP_INT` routed through connector pin 22 | Supports interrupt-driven pressure acquisition. Enclosure requires a separate ePTFE atmospheric vent; do not share it with the microphone chimney. |
+| Audio | IM73A135 + TLV320ADC6120 populated | Retains the complete differential analogue microphone path and digital audio conversion. Use a sealed external acoustic chimney. Route ADC channel 2 to test pads or an optional expansion connector. |
+| RF supply and antenna | ESP32 PICO RF pin through tuneable C-L-C/pi matching to the populated CA-C03 ceramic antenna | Retains an external antenna feed. The SiP does not remove the need for a 50 Ohm feed, edge keepout, enclosure validation and final VNA/OTA tuning. |
+| Ground symbol convention | `Earth` symbol represents system 0 V | Retained at the user's request. It is not protective earth or chassis earth and must not be described as PE in safety or PCB documentation. |
+
+## Normative interconnect maps
+
+### Front 24-pin connector, identical at both rigid boards
+
+| Pin | Signal | Pin | Signal |
+|---:|---|---:|---|
+| 1 | `Earth` | 13 | `IMPACT_MOSI` |
+| 2 | `+3V3_SENSOR` | 14 | `IMPACT_MISO` |
+| 3 | `+3V3_SENSOR` | 15 | `IMPACT_CS_N` |
+| 4 | `Earth` | 16 | `IMPACT_INT1` |
+| 5 | `MOTION_SCK` | 17 | `IMPACT_INT2` |
+| 6 | `MOTION_MOSI` | 18 | `Earth` |
+| 7 | `MOTION_MISO` | 19 | `I2C_SDA` |
+| 8 | `MOTION_CS_N` | 20 | `I2C_SCL` |
+| 9 | `MOTION_INT1` | 21 | `MMC_INT` |
+| 10 | `MOTION_INT2` | 22 | `BMP_INT` |
+| 11 | `Earth` | 23 | `SENSOR_PWR_EN` |
+| 12 | `IMPACT_SCK` | 24 | `Earth` |
+
+### Rear HMI 8-pin connector
+
+| Pin | Signal | Pin | Signal |
+|---:|---|---:|---|
+| 1 | `Earth` | 5 | `LCD_RST_N` |
+| 2 | `+3V3_HMI` | 6 | `LCD_DC` |
+| 3 | `LCD_SCK` | 7 | `LCD_CS_N` |
+| 4 | `LCD_MOSI` | 8 | `LCD_BL` |
+
+## PCB and validation items
+
+1. Verify the official ESP32-S3-PICO-1-N8R8 pinout, exposed-pad via field, package courtyard and N8R8 ordering metadata independently of the supplied N8R2 library archive.
+2. Confirm 24-pin and 8-pin Hirose contact side, pin-1 orientation, FPC thickness and cable fold before PCB routing. Render both rigid boards with the cable installed to prove no mirroring. Replace the current full-size signal-pad paste openings with the reduced vendor paste apertures before production release.
+3. Scope both shared SPI branches with the final FPC/daughterboard and tune the 22-47 Ohm source resistors. Prove no HMI activity occurs in `ARMED` or `SHOT_CAPTURE`.
+4. Validate TPS63802 droop and thermal rise with maximum ESP32 radio activity, both IMUs streaming, audio active and HMI loads transitioning outside capture.
+5. Validate BQ25611D reset-off behavior, 1.0 A charge mode, source-current policy, watchdog, NTC thresholds and OTG-disabled state. Treat 1.5 A as prohibited until thermal validation is signed off.
+6. Validate ESD441-class TVS and TPS25947-class eFuse selection, 3 A receptacle/contact/copper rating, inrush, short response and thermal behavior. No 500 mA PPTC assumption may remain.
+7. Verify the 20 mOhm shunt Kelvin routing and BQ298217 threshold ranges over IC, shunt and temperature tolerance; test approximately 1.8 A charge OC, 3.0 A discharge OC and 10 A short behavior safely.
+8. Prove the default bypass path carries at least 3 A and relevant fault transients. Enforce mutual exclusion in BOM/assembly data. Gauge-populated hardware is a separately current-limited variant.
+9. Validate the Samsung INR18650-35E tab weld, plated-slot solder joint, cradle restraint, remote NTC attachment and service procedure. Solder joints must carry current but no cell-retention load.
+10. Verify BMP581 ePTFE vent and microphone acoustic chimney as separate sealed paths, including adhesive/cleaning keepouts and pressure/acoustic response.
+11. Measure magnetic disturbance at the extreme-front MMC5983MA location with display, charger and radio active; use nonmagnetic fasteners and perform final-product calibration.
+12. VNA/OTA tune the external antenna matching in the final cue enclosure and production stack-up; schematic values are starting values only.
+
+Sources: [ESP32-S3-PICO-1 datasheet](https://documentation.espressif.com/esp32-s3-pico-1_datasheet_en.pdf), [ESP32-S3 hardware design guidelines](https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32s3/schematic-checklist.html), [Hirose FH34SRJ-24S product page](https://www.hirose.com/en/product/p/CL0580-1255-6-50), [Hirose FH34SRJ-8S product page](https://www.hirose.com/en/product/p/CL0580-1231-8-50), [BQ2980/BQ2982 datasheet](https://www.ti.com/lit/ds/symlink/bq2980.pdf), [BQ27427 datasheet](https://www.ti.com/lit/ds/symlink/bq27427.pdf), [BQ25611D datasheet](https://www.ti.com/lit/ds/symlink/bq25611d.pdf), [TPS25947 datasheet](https://www.ti.com/lit/ds/symlink/tps25947.pdf).

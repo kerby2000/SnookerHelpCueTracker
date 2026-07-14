@@ -5020,4 +5020,1417 @@
 		)
 		(embedded_fonts no)
 	)
+  (symbol "ESP32-S3-PICO-1-N8R8"
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U"
+      (at 2.54 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Value" "ESP32-S3-PICO-1-N8R8"
+      (at 0 -2.54 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Footprint" "CueTracker_Exact:Espressif_ESP32-S3-PICO-1_LGA56_7x7mm_P0.4mm"
+      (at 0 -5.08 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Datasheet" "https://documentation.espressif.com/esp32-s3-pico-1_datasheet_en.pdf"
+      (at 0 -7.62 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Description" "Espressif ESP32-S3-PICO-1-N8R8 SiP, 8 MB Quad flash, 8 MB Octal PSRAM, LGA56 plus exposed pad 57; corrected official package pin contract"
+      (at 0 -10.16 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "ki_keywords" "Espressif ESP32-S3 PICO N8R8 WiFi Bluetooth 8MB flash 8MB PSRAM"
+      (at 0 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (symbol "ESP32-S3-PICO-1-N8R8_0_1"
+      (rectangle
+        (start -20.32 35.56)
+        (end 20.32 -35.56)
+        (stroke (width 0.254) (type default))
+        (fill (type background))
+      )
+    )
+    (symbol "ESP32-S3-PICO-1-N8R8_1_1"
+      (pin bidirectional line
+        (at 22.86 -30.48 180)
+        (length 2.54)
+        (name "LNA_IN"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "1"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at -2.54 38.1 270)
+        (length 2.54)
+        (name "VDD3P3"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "2"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at -2.54 38.1 270)
+        (length 2.54)
+        (name "VDD3P3"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "3"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin input line
+        (at 22.86 -27.94 180)
+        (length 2.54)
+        (name "CHIP_PU"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "4"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 30.48 0)
+        (length 2.54)
+        (name "GPIO0"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "5"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 27.94 0)
+        (length 2.54)
+        (name "GPIO1"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "6"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 25.4 0)
+        (length 2.54)
+        (name "GPIO2"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "7"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 22.86 0)
+        (length 2.54)
+        (name "GPIO3"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "8"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 20.32 0)
+        (length 2.54)
+        (name "GPIO4"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "9"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 17.78 0)
+        (length 2.54)
+        (name "GPIO5"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "10"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 15.24 0)
+        (length 2.54)
+        (name "GPIO6"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "11"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 12.7 0)
+        (length 2.54)
+        (name "GPIO7"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "12"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 10.16 0)
+        (length 2.54)
+        (name "GPIO8"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "13"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 7.62 0)
+        (length 2.54)
+        (name "GPIO9"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "14"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 5.08 0)
+        (length 2.54)
+        (name "GPIO10"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "15"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 2.54 0)
+        (length 2.54)
+        (name "GPIO11"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "16"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 0 0)
+        (length 2.54)
+        (name "GPIO12"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "17"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 -2.54 0)
+        (length 2.54)
+        (name "GPIO13"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "18"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 -5.08 0)
+        (length 2.54)
+        (name "GPIO14"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "19"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at 0 38.1 270)
+        (length 2.54)
+        (name "VDD3P3_RTC"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "20"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -22.86 -22.86 0)
+        (length 2.54)
+        (name "GPIO15/XTAL_32K_P"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "21"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -22.86 -25.4 0)
+        (length 2.54)
+        (name "GPIO16/XTAL_32K_N"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "22"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 -7.62 0)
+        (length 2.54)
+        (name "GPIO17"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "23"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 -10.16 0)
+        (length 2.54)
+        (name "GPIO18"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "24"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 -12.7 0)
+        (length 2.54)
+        (name "GPIO19/USB_D-"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "25"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 -15.24 0)
+        (length 2.54)
+        (name "GPIO20/USB_D+"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "26"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -22.86 -17.78 0)
+        (length 2.54)
+        (name "GPIO21"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "27"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 22.86 30.48 180)
+        (length 2.54)
+        (name "SPICS1_INTERNAL_PSRAM"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "28"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_out line
+        (at 2.54 38.1 270)
+        (length 2.54)
+        (name "VDD_SPI_INTERNAL"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "29"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 22.86 27.94 180)
+        (length 2.54)
+        (name "NC"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "30"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 22.86 25.4 180)
+        (length 2.54)
+        (name "NC"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "31"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 22.86 22.86 180)
+        (length 2.54)
+        (name "NC"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "32"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 22.86 20.32 180)
+        (length 2.54)
+        (name "NC"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "33"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 22.86 17.78 180)
+        (length 2.54)
+        (name "NC"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "34"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 22.86 15.24 180)
+        (length 2.54)
+        (name "NC"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "35"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 22.86 12.7 180)
+        (length 2.54)
+        (name "GPIO48/SPICLK_N"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "36"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 22.86 10.16 180)
+        (length 2.54)
+        (name "GPIO47/SPICLK_P"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "37"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 22.86 7.62 180)
+        (length 2.54)
+        (name "GPIO33_INTERNAL_PSRAM"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "38"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 22.86 5.08 180)
+        (length 2.54)
+        (name "GPIO34_INTERNAL_PSRAM"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "39"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 22.86 2.54 180)
+        (length 2.54)
+        (name "GPIO35_INTERNAL_PSRAM"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "40"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 22.86 0 180)
+        (length 2.54)
+        (name "GPIO36_INTERNAL_PSRAM"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "41"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 22.86 -2.54 180)
+        (length 2.54)
+        (name "GPIO37_INTERNAL_PSRAM"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "42"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 22.86 -5.08 180)
+        (length 2.54)
+        (name "GPIO38"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "43"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 22.86 -7.62 180)
+        (length 2.54)
+        (name "GPIO39/MTCK"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "44"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 22.86 -10.16 180)
+        (length 2.54)
+        (name "GPIO40/MTDO"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "45"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at 5.08 38.1 270)
+        (length 2.54)
+        (name "VDD3P3_CPU"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "46"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 22.86 -12.7 180)
+        (length 2.54)
+        (name "GPIO41/MTDI"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "47"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 22.86 -15.24 180)
+        (length 2.54)
+        (name "GPIO42/MTMS"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "48"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 22.86 -17.78 180)
+        (length 2.54)
+        (name "GPIO43/U0TXD"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "49"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 22.86 -20.32 180)
+        (length 2.54)
+        (name "GPIO44/U0RXD"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "50"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 22.86 -22.86 180)
+        (length 2.54)
+        (name "GPIO45/STRAP"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "51"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 22.86 -25.4 180)
+        (length 2.54)
+        (name "GPIO46/STRAP"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "52"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at -22.86 -30.48 0)
+        (length 2.54)
+        (name "NC_INTERNAL_XTAL"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "53"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at -22.86 -27.94 0)
+        (length 2.54)
+        (name "NC_INTERNAL_XTAL"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "54"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at -5.08 38.1 270)
+        (length 2.54)
+        (name "VDDA"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "55"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at -5.08 38.1 270)
+        (length 2.54)
+        (name "VDDA"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "56"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at 0 -38.1 90)
+        (length 2.54)
+        (name "GND/EP"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "57"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+    )
+  )
+  (symbol "TPS259470ARPWR"
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U"
+      (at 2.54 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Value" "TPS259470ARPWR"
+      (at 0 -2.54 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Footprint" "CueTracker_Exact:TI_RPW0010A_VQFN-HR-10_2x2mm"
+      (at 0 -5.08 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps25947.pdf"
+      (at 0 -7.62 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Description" "TI TPS259470A 2.7-23 V 5.5 A eFuse, true reverse-current blocking, RPW0010A VQFN-HR-10"
+      (at 0 -10.16 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "ki_keywords" "TI TPS25947 eFuse current limiter"
+      (at 0 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (symbol "TPS259470ARPWR_0_1"
+      (rectangle
+        (start -7.62 10.16)
+        (end 7.62 -10.16)
+        (stroke (width 0.254) (type default))
+        (fill (type background))
+      )
+    )
+    (symbol "TPS259470ARPWR_1_1"
+      (pin input line
+        (at -10.16 7.62 0)
+        (length 2.54)
+        (name "EN/UVLO"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "1"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin input line
+        (at -10.16 5.08 0)
+        (length 2.54)
+        (name "OVLO"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "2"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin input line
+        (at -10.16 2.54 0)
+        (length 2.54)
+        (name "AUXOFF"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "3"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin open_collector line
+        (at 10.16 5.08 180)
+        (length 2.54)
+        (name "FLT_N"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "4"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at -10.16 -5.08 0)
+        (length 2.54)
+        (name "IN"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "5"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_out line
+        (at 10.16 -5.08 180)
+        (length 2.54)
+        (name "OUT"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "6"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 10.16 2.54 180)
+        (length 2.54)
+        (name "DVDT"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "7"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at 0 -12.7 90)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "8"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 10.16 0 180)
+        (length 2.54)
+        (name "ILM"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "9"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -10.16 0 0)
+        (length 2.54)
+        (name "ITIMER"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "10"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+    )
+  )
+  (symbol "ESD441DPYR"
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "D"
+      (at 2.54 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Value" "ESD441DPYR"
+      (at 0 -2.54 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Footprint" "Package_DFN_QFN:X1SON-2_1x0.6mm_P0.65mm"
+      (at 0 -5.08 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/esd441.pdf"
+      (at 0 -7.62 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Description" "TI ESD441 single-channel 5 V VBUS surge/ESD protection diode, DPY package"
+      (at 0 -10.16 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "ki_keywords" "TI ESD441 VBUS TVS"
+      (at 0 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (symbol "ESD441DPYR_0_1"
+      (rectangle
+        (start -2.54 2.54)
+        (end 2.54 -2.54)
+        (stroke (width 0.254) (type default))
+        (fill (type background))
+      )
+    )
+    (symbol "ESD441DPYR_1_1"
+      (pin passive line
+        (at -5.08 0 0)
+        (length 2.54)
+        (name "IO"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "1"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at 0 -5.08 90)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "2"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+    )
+  )
+  (symbol "TPD2E2U06DCKR"
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U"
+      (at 2.54 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Value" "TPD2E2U06DCKR"
+      (at 0 -2.54 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Footprint" "CueTracker_Exact:TI_DCK0003A_SC70-3_2.0x1.25mm_P0.65mm"
+      (at 0 -5.08 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (hide yes)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tpd2e2u06.pdf"
+      (at 0 -7.62 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Description" "TI TPD2E2U06 dual-channel low-capacitance ESD protection for USB-C CC1 and CC2, DCK SC70-3"
+      (at 0 -10.16 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "ki_keywords" "TI TPD2E2U06 USB Type-C CC ESD"
+      (at 0 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (symbol "TPD2E2U06DCKR_0_1"
+      (rectangle
+        (start -5.08 5.08)
+        (end 5.08 -5.08)
+        (stroke (width 0.254) (type default))
+        (fill (type background))
+      )
+    )
+    (symbol "TPD2E2U06DCKR_1_1"
+      (pin passive line
+        (at -7.62 2.54 0)
+        (length 2.54)
+        (name "IO1"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "1"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -7.62 -2.54 0)
+        (length 2.54)
+        (name "IO2"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "2"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at 0 -7.62 90)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "3"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+    )
+  )
+
+  (symbol "FH34SRJ-24S-0.5SH_50_"
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "J"
+      (at 2.54 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Value" "FH34SRJ-24S-0.5SH_50_"
+      (at 0 -2.54 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Footprint" "CueTracker_Exact:Hirose_FH34SRJ-24S-0.5SH_50_"
+      (at 0 -5.08 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Datasheet" "https://www.hirose.com/en/product/p/CL0580-1255-6-50"
+      (at 0 -7.62 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Description" "Hirose FH34SRJ-24S-0.5SH(50), 24-position, 0.5 mm pitch, 0.3 mm FPC/FFC, dual-contact back-flip; LCSC C324726"
+      (at 0 -10.16 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "ki_keywords" "Hirose FH34SRJ 24 0.5mm FPC FFC C324726"
+      (at 0 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (symbol "FH34SRJ-24S-0.5SH_50__0_1"
+      (rectangle
+        (start -10.16 8.89)
+        (end 10.16 -8.89)
+        (stroke (width 0.254) (type default))
+        (fill (type background))
+      )
+    )
+    (symbol "FH34SRJ-24S-0.5SH_50__1_1"
+      (pin passive line
+        (at -12.7 6.985 0)
+        (length 2.54)
+        (name "P1"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "1"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 5.715 0)
+        (length 2.54)
+        (name "P2"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "2"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 4.445 0)
+        (length 2.54)
+        (name "P3"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "3"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 3.175 0)
+        (length 2.54)
+        (name "P4"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "4"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 1.905 0)
+        (length 2.54)
+        (name "P5"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "5"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 0.635 0)
+        (length 2.54)
+        (name "P6"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "6"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 -0.635 0)
+        (length 2.54)
+        (name "P7"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "7"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 -1.905 0)
+        (length 2.54)
+        (name "P8"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "8"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 -3.175 0)
+        (length 2.54)
+        (name "P9"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "9"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 -4.445 0)
+        (length 2.54)
+        (name "P10"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "10"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 -5.715 0)
+        (length 2.54)
+        (name "P11"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "11"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 -6.985 0)
+        (length 2.54)
+        (name "P12"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "12"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 6.985 180)
+        (length 2.54)
+        (name "P13"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "13"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 5.715 180)
+        (length 2.54)
+        (name "P14"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "14"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 4.445 180)
+        (length 2.54)
+        (name "P15"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "15"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 3.175 180)
+        (length 2.54)
+        (name "P16"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "16"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 1.905 180)
+        (length 2.54)
+        (name "P17"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "17"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 0.635 180)
+        (length 2.54)
+        (name "P18"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "18"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 -0.635 180)
+        (length 2.54)
+        (name "P19"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "19"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 -1.905 180)
+        (length 2.54)
+        (name "P20"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "20"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 -3.175 180)
+        (length 2.54)
+        (name "P21"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "21"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 -4.445 180)
+        (length 2.54)
+        (name "P22"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "22"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 -5.715 180)
+        (length 2.54)
+        (name "P23"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "23"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 -6.985 180)
+        (length 2.54)
+        (name "P24"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "24"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at -3.81 9.525 270)
+        (length 2.54)
+        (name "MP"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "MP1"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 3.81 9.525 270)
+        (length 2.54)
+        (name "MP"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "MP2"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+    )
+  )
+  (symbol "FH34SRJ-8S-0.5SH_50_"
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "J"
+      (at 2.54 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Value" "FH34SRJ-8S-0.5SH_50_"
+      (at 0 -2.54 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Footprint" "CueTracker_Exact:Hirose_FH34SRJ-8S-0.5SH_50_"
+      (at 0 -5.08 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Datasheet" "https://www.hirose.com/en/product/p/CL0580-1231-8-50"
+      (at 0 -7.62 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Description" "Hirose FH34SRJ-8S-0.5SH(50), 8-position, 0.5 mm pitch, 0.3 mm FPC/FFC, dual-contact back-flip"
+      (at 0 -10.16 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "ki_keywords" "Hirose FH34SRJ FPC FFC 0.5mm"
+      (at 0 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (symbol "FH34SRJ-8S-0.5SH_50__0_1"
+      (rectangle
+        (start -10.16 8.89)
+        (end 10.16 -8.89)
+        (stroke (width 0.254) (type default))
+        (fill (type background))
+      )
+    )
+    (symbol "FH34SRJ-8S-0.5SH_50__1_1"
+      (pin passive line
+        (at -12.7 1.905 0)
+        (length 2.54)
+        (name "P1"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "1"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 0.635 0)
+        (length 2.54)
+        (name "P2"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "2"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 -0.635 0)
+        (length 2.54)
+        (name "P3"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "3"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -12.7 -1.905 0)
+        (length 2.54)
+        (name "P4"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "4"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 1.905 180)
+        (length 2.54)
+        (name "P5"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "5"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 0.635 180)
+        (length 2.54)
+        (name "P6"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "6"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 -0.635 180)
+        (length 2.54)
+        (name "P7"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "7"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 12.7 -1.905 180)
+        (length 2.54)
+        (name "P8"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "8"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at -3.81 -10.795 90)
+        (length 2.54)
+        (name "MP"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "MP1"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at 3.81 -10.795 90)
+        (length 2.54)
+        (name "MP"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "MP2"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+    )
+  )
 )

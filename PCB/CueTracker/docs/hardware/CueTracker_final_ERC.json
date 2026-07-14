@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-07-15T01:01:48",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.4",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/03d9cb1d-595d-4f06-9ab9-9da9181798dc",
+            "violations": []
+        },
+        {
+            "path": "/Rear Main/",
+            "uuid_path": "/03d9cb1d-595d-4f06-9ab9-9da9181798dc/bcc53767-8b99-4d1b-9d94-3e6cbf29068f",
+            "violations": []
+        },
+        {
+            "path": "/Front Sensor/",
+            "uuid_path": "/03d9cb1d-595d-4f06-9ab9-9da9181798dc/f99d8292-f510-452f-b53b-5a5eac42ac75",
+            "violations": []
+        }
+    ],
+    "source": "CueTracker.kicad_sch"
+}

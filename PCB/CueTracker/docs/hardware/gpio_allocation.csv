@@ -1,35 +1,72 @@
 gpio_or_pin,net,peripheral,direction,boot_or_default,connected_device,reason
-GPIO0 / QFN5,CHIP_BOOT,download strap/button,input at reset,"internal weak pull-up; R8 10k to +3V3; button to Earth",BOOT1,Native USB/UART download recovery
-GPIO1 / QFN6,BAT_ADC_SENSE,ADC1_CH0,analogue input,"non-strap; switched divider disconnected when disabled","U9 TPS22919; R23 1M / R24 330k divider; C34 100nF to Earth",ADC1 battery-voltage fallback
-GPIO2 / QFN7,IMPACT_INT1,GPIO interrupt,input,non-strap,"U11 IIS3DWB10ISTR INT1; TP10",Impact FIFO/data-ready interrupt
-GPIO3 / QFN8,/CHG_CE_N,BQ25611D charge enable / JTAG-source strap,"strap input at reset; output after initialization","R20 10k to +3V3 keeps charge off at reset; default eFuses select USB Serial/JTAG; review pad-JTAG strap variants","U7 BQ25611D /CE; R20",Program 180mA ICHG / 60mA precharge and termination / 4.190V VREG / source-safe IINDPM before driving low
-GPIO4 / QFN9,IMPACT_INT2,GPIO interrupt,input,non-strap,"U11 IIS3DWB10ISTR INT2/TRIG; TP11",Second impact/status interrupt
-GPIO5 / QFN10,AUDIO_BCLK,I2S/TDM bit clock,output,non-strap,U13 TLV320ADC6120 BCLK,MCU supplies audio serial clock
-GPIO6 / QFN11,AUDIO_FSYNC,I2S/TDM frame sync,output,non-strap,U13 TLV320ADC6120 FSYNC,MCU supplies audio frame clock
-GPIO7 / QFN12,AUDIO_SDOUT,I2S/TDM serial data,input,"non-strap; R37 33R",U13 TLV320ADC6120 SDOUT,Receive digitized microphone samples
-GPIO8 / QFN13,I2C_SDA,I2C0 SDA,bidirectional open-drain,"non-strap; R2 4.7k shared pull-up","TUSB320LAIRWBR 0x47; U7 BQ25611DRTWR 0x6B; U14 BQ27427YZFR 0x55; U6 BMP581 0x46; U8 MMC5983MA 0x30; U13 TLV320ADC6120 0x4E",Shared low-speed control bus
-GPIO9 / QFN14,I2C_SCL,I2C0 SCL,bidirectional open-drain,"non-strap; R1 4.7k shared pull-up","TUSB320LAIRWBR 0x47; U7 BQ25611DRTWR 0x6B; U14 BQ27427YZFR 0x55; U6 BMP581 0x46; U8 MMC5983MA 0x30; U13 TLV320ADC6120 0x4E",Shared low-speed control bus
-GPIO10 / QFN15,MOTION_SPI_SCK,SPI2 SCLK,output,"non-strap; R40 22R",U12 LSM6DSV320XTR,Dedicated motion SPI
-GPIO11 / QFN16,MOTION_SPI_MOSI,SPI2 MOSI,output,"non-strap; R42 22R",U12 LSM6DSV320XTR,Dedicated motion SPI
-GPIO12 / QFN17,MOTION_SPI_MISO,SPI2 MISO,input,"non-strap; R34 0R",U12 LSM6DSV320XTR,Dedicated motion SPI
-GPIO13 / QFN18,MOTION_SPI_CS_N,SPI2 CS,output,"non-strap; 10k sensor pull-up; R38 0R",U12 LSM6DSV320XTR,Dedicated motion SPI
-GPIO14 / QFN19,BAT_ADC_EN,GPIO / load-switch enable,output,"non-strap; R25 100k pulldown keeps U9 ON low at reset","U9 TPS22919DCKR ON; R25 to Earth",Enable battery divider only during measurement
-GPIO17 / QFN23,IMPACT_SPI_SCK,SPI3 SCLK,output,"non-strap; R29 22R",U11 IIS3DWB10ISTR,Dedicated impact SPI
-GPIO18 / QFN24,IMPACT_SPI_MOSI,SPI3 MOSI,output,"non-strap; R35 22R",U11 IIS3DWB10ISTR,Dedicated impact SPI
-GPIO19 / QFN25,USB_D-,native USB,bidirectional,"fixed USB; R5 22R",USB-C through ESD protection,Native programming/debug and USB data
-GPIO20 / QFN26,USB_D+,native USB,bidirectional,"fixed USB; R6 22R",USB-C through ESD protection,Native programming/debug and USB data
-GPIO21 / QFN27,IMPACT_SPI_MISO,SPI3 MISO,input,"non-strap; R36 0R",U11 IIS3DWB10ISTR,Dedicated impact SPI
-SPICS1 / QFN28 and GPIO33-GPIO37 / QFN38-QFN42,INTERNAL_PSRAM,octal PSRAM,dedicated,"board-level no-connect; package-internal",ESP32-S3R8 in-package PSRAM,Must never be allocated to peripherals
-VDD_SPI / QFN29,VDD_SPI,memory I/O power,power,"dedicated 3.3V output from U3; no separate +3V3 feed","U3 ESP32-S3R8 output; U4 W25Q128JVSIQ supply",Supply external flash and memory I/O domain
-SPIHD/SPIWP/SPICS0/SPICLK/SPIQ/SPID / QFN30-QFN35,FLASH_QSPI,QSPI flash,dedicated,memory interface,W25Q128JVSIQ,External 16MB application flash
-GPIO38 / QFN43,MOTION_INT1,GPIO interrupt,input,non-strap,"U12 LSM6DSV320XTR INT1; TP12",Main FIFO/data-ready interrupt
-GPIO39 / QFN44,JTAG_TCK,physical-pad JTAG,input,reserved,"J2 M50-3600542R SMD pin 4",Hardware recovery/debug
-GPIO40 / QFN45,JTAG_TDO,physical-pad JTAG,output,reserved,"J2 M50-3600542R SMD pin 6",Hardware recovery/debug
-GPIO41 / QFN47,JTAG_TDI,physical-pad JTAG,input,reserved,"J2 M50-3600542R SMD pin 8",Hardware recovery/debug
-GPIO42 / QFN48,JTAG_TMS,physical-pad JTAG,input,reserved,"J2 M50-3600542R SMD pin 2",Hardware recovery/debug
-GPIO43 / QFN49 (U0TXD),IMPACT_SPI_CS_N,SPI3 CS,output,"UART0 TX not used; 10k sensor pull-up; R32 0R",U11 IIS3DWB10ISTR,Dedicated impact SPI while retaining GPIO1 for ADC1
-GPIO44 / QFN50 (U0RXD),MMC_INT,GPIO interrupt,input,"UART0 RX not used; R19 100k pull-down",U8 MMC5983MA INT,Dedicated magnetometer interrupt
-GPIO45 / QFN51,VDD_SPI_STRAP,VDD_SPI voltage strap,input at reset,"R13 10k pull-down",strap only,Select 3.3V VDD_SPI
-GPIO46 / QFN52,STATUS_LED,addressable LED data,output after reset,"ROM-log/boot strap; internal weak pull-down; LED DIN high impedance",WS2812B-2020 LED1,Status indication without disturbing reset strap
-GPIO47 / QFN37 (SPICLK_P),MOTION_INT2,GPIO interrupt,input,non-strap,"U12 LSM6DSV320XTR INT2; TP13",Second main-motion event/high-g interrupt
-GPIO48 / QFN36 (SPICLK_N),POWER_ALERT_N,shared power interrupt / gauge wake,"input; controlled low pulse only for gauge wake if required","non-strap; R18 10k pull-up","TUSB320LAIRWBR INT_N; U7 BQ25611DRTWR INT; U14 BQ27427YZFR GPOUT",Wire-OR alert; firmware reads all three I2C devices after assertion
+"GPIO0 / SiP pin 5","CHIP_BOOT","download strap/button","input at reset","10k pull-up to +3V3; BOOT switch to Earth","BOOT button","Native USB download recovery"
+"GPIO1 / SiP pin 6","BAT_ADC_SENSE","ADC1_CH0","analogue input","non-strapping; divider is disconnected while GPIO46 is low","U9 TPS22919; 1M / 330k divider; 100nF to Earth","Voltage-only battery fallback without continuous divider drain"
+"GPIO2 / SiP pin 7","IMPACT_INT1","GPIO interrupt","input","non-strapping","Front connector pin 16; IIS3DWB10IS INT1","Primary impact interrupt"
+"GPIO3 / SiP pin 8","CHG_ENABLE","BQ25611D charge-enable transistor gate","output after initialization","JTAG-source strap; gate pull-down keeps Q2 off and BQ25611D CE high during reset","Q2 open-drain CE stage","Reset-safe charge disabled; firmware uses 1.0A normal and 1.5A only after thermal validation"
+"GPIO4 / SiP pin 9","IMPACT_INT2","GPIO interrupt","input","non-strapping","Front connector pin 17; IIS3DWB10IS INT2/TRIG","Secondary impact interrupt/trigger"
+"GPIO5 / SiP pin 10","AUDIO_BCLK","I2S/TDM bit clock","output","non-strapping","TLV320ADC6120 BCLK","Audio serial clock"
+"GPIO6 / SiP pin 11","AUDIO_FSYNC","I2S/TDM frame sync","output","non-strapping","TLV320ADC6120 FSYNC","Audio frame sync"
+"GPIO7 / SiP pin 12","AUDIO_SDOUT","I2S/TDM serial data","input","non-strapping","TLV320ADC6120 SDOUT","Digitized microphone data"
+"GPIO8 / SiP pin 13","I2C_SDA","I2C0 SDA","bidirectional open-drain","non-strapping; one rear pull-up pair","TUSB320LAI 0x47; BQ25611D 0x6B; optional BQ27427 0x55; BMP581 0x46; MMC5983MA 0x30; TLV320ADC6120 0x4E","Shared control bus through front connector pin 19"
+"GPIO9 / SiP pin 14","I2C_SCL","I2C0 SCL","bidirectional open-drain","non-strapping; one rear pull-up pair","TUSB320LAI 0x47; BQ25611D 0x6B; optional BQ27427 0x55; BMP581 0x46; MMC5983MA 0x30; TLV320ADC6120 0x4E","Shared control bus through front connector pin 20"
+"GPIO10 / SiP pin 15","MOTION_SCK / LCD_SCK","SPI clock","output","non-strapping; separate source resistors on front and HMI branches","Front connector pin 5; HMI connector pin 3","Shared source; no display SPI transactions in ARMED or SHOT_CAPTURE"
+"GPIO11 / SiP pin 16","MOTION_MOSI / LCD_MOSI","SPI MOSI","output","non-strapping; separate source resistors on front and HMI branches","Front connector pin 6; HMI connector pin 4","Shared source; no display SPI transactions in ARMED or SHOT_CAPTURE"
+"GPIO12 / SiP pin 17","MOTION_MISO","SPI MISO","input","non-strapping","Front connector pin 7; LSM6DSV320X MISO","Main-motion SPI input"
+"GPIO13 / SiP pin 18","MOTION_CS_N","SPI chip select","output","non-strapping; sensor-side pull-up","Front connector pin 8; LSM6DSV320X CS","Main-motion device select"
+"GPIO14 / SiP pin 19","BMP_INT","GPIO interrupt","input","non-strapping","Front connector pin 22; BMP581 INT","Barometer interrupt retained through interconnect"
+"GPIO15 / SiP pin 21","XTAL_32K_P","RTC crystal","analogue crystal pin","not available as GPIO while RTC crystal is fitted","32.768kHz crystal","Optional lower-drift sleep timing"
+"GPIO16 / SiP pin 22","XTAL_32K_N","RTC crystal","analogue crystal pin","not available as GPIO while RTC crystal is fitted","32.768kHz crystal","Paired RTC crystal terminal"
+"GPIO17 / SiP pin 23","IMPACT_SCK","SPI clock","output","non-strapping","Front connector pin 12; IIS3DWB10IS SCK","Dedicated impact SPI clock"
+"GPIO18 / SiP pin 24","IMPACT_MOSI","SPI MOSI","output","non-strapping","Front connector pin 13; IIS3DWB10IS MOSI","Dedicated impact SPI output"
+"GPIO19 / SiP pin 25","USB_D-","native USB","bidirectional","fixed native USB function","USB-C through source resistor and USBLC6-2SC6","Programming; USB Serial/JTAG; product USB data"
+"GPIO20 / SiP pin 26","USB_D+","native USB","bidirectional","fixed native USB function","USB-C through source resistor and USBLC6-2SC6","Programming; USB Serial/JTAG; product USB data"
+"GPIO21 / SiP pin 27","IMPACT_MISO","SPI MISO","input","non-strapping","Front connector pin 14; IIS3DWB10IS MISO","Dedicated impact SPI input"
+"GPIO38 / SiP pin 43","MOTION_INT1","GPIO interrupt","input","non-strapping","Front connector pin 9; LSM6DSV320X INT1","Main FIFO/data-ready interrupt"
+"GPIO39 / SiP pin 44","LCD_CS_N","HMI SPI chip select","output","non-strapping; pull-up keeps display deselected","HMI connector pin 7","ST7789 chip select; physical JTAG header removed"
+"GPIO40 / SiP pin 45","LCD_DC","HMI data/command","output","non-strapping","HMI connector pin 6","ST7789 data/command select"
+"GPIO41 / SiP pin 47","LCD_RST_N","HMI reset","output","non-strapping; explicit passive reset default","HMI connector pin 5","ST7789 reset"
+"GPIO42 / SiP pin 48","HMI_EN / LCD_BL","HMI load-switch/backlight control","output","non-strapping; pull-down keeps HMI/backlight off during reset","HMI power switch and connector pin 8","No state changes in ARMED or SHOT_CAPTURE"
+"GPIO43 / SiP pin 49","IMPACT_CS_N","SPI chip select","output","UART0 TX alternate function not used; sensor-side pull-up","Front connector pin 15; IIS3DWB10IS CS","Dedicated impact device select"
+"GPIO44 / SiP pin 50","MMC_INT","GPIO interrupt","input","UART0 RX alternate function not used","Front connector pin 21; MMC5983MA INT","Dedicated magnetometer interrupt"
+"GPIO45 / SiP pin 51","VDD_SPI_STRAP","SiP memory-voltage strap","input at reset; otherwise unused","retain Espressif-required strap state","SiP strap network","Protect in-package flash/PSRAM supply selection"
+"GPIO46 / SiP pin 52","SENSOR_PWR_EN / BAT_ADC_EN","shared switched-load enable","output after boot","strapping pin; pull-down keeps front rail and battery divider off at reset","Front connector pin 23; front load switch; rear TPS22919","Consolidated low-duty enable; battery ADC is available only while asserted"
+"GPIO47 / SiP pin 37","MOTION_INT2","GPIO interrupt","input","non-strapping","Front connector pin 10; LSM6DSV320X INT2","Secondary motion/high-g interrupt"
+"GPIO48 / SiP pin 36","VBUS_PRESENT","USB source-presence sense","input","non-strapping; powered-off-safe level shift required","Rear VBUS divider and 74LVC1G17-class buffer","Direct low-latency VBUS presence; power ICs are polled"
+"SiP pin 28 SPICS1","INTERNAL_PSRAM","in-package memory","dedicated","board-level no-connect","ESP32-S3-PICO-1-N8R8 internal PSRAM","Never allocate to a peripheral"
+"SiP pin 29 VDD_SPI","INTERNAL_MEMORY_SUPPLY","in-package memory supply","power","do not load as a board rail","ESP32-S3-PICO-1-N8R8 internal flash/PSRAM","Package-internal supply node"
+"SiP pins 30-35","INTERNAL_FLASH","in-package flash","dedicated","board-level no-connect","ESP32-S3-PICO-1-N8R8 internal 8MB flash","Never allocate to a peripheral"
+"SiP pins 38-42 / GPIO33-GPIO37","INTERNAL_PSRAM","in-package octal PSRAM","dedicated","board-level no-connect","ESP32-S3-PICO-1-N8R8 internal 8MB PSRAM","Never allocate to a peripheral"
+"SiP pins 53-54","INTERNAL_40MHZ_CRYSTAL","in-package crystal","dedicated","board-level no-connect","ESP32-S3-PICO-1-N8R8 internal crystal","External 40MHz crystal and tuning network removed"
+"SiP exposed pad 57","Earth","electrical and thermal return","power","low-inductance via field","PCB ground system","Package return and thermal path"
+"J101/J201 pin 1","Earth","24-position front-board FPC","power return","fixed pin map","Rear/front FH34SRJ-24S","Return"
+"J101/J201 pin 2","+3V3_SENSOR","24-position front-board FPC","power","paralleled with pin 3","Rear/front FH34SRJ-24S","Front-board supply"
+"J101/J201 pin 3","+3V3_SENSOR","24-position front-board FPC","power","paralleled with pin 2","Rear/front FH34SRJ-24S","Front-board supply"
+"J101/J201 pin 4","Earth","24-position front-board FPC","power return","fixed pin map","Rear/front FH34SRJ-24S","Return"
+"J101/J201 pin 5","MOTION_SCK","24-position front-board FPC","rear to front","GPIO10 source; shared with LCD_SCK","LSM6DSV320X","Main-motion SPI clock"
+"J101/J201 pin 6","MOTION_MOSI","24-position front-board FPC","rear to front","GPIO11 source; shared with LCD_MOSI","LSM6DSV320X","Main-motion SPI MOSI"
+"J101/J201 pin 7","MOTION_MISO","24-position front-board FPC","front to rear","GPIO12 input","LSM6DSV320X","Main-motion SPI MISO"
+"J101/J201 pin 8","MOTION_CS_N","24-position front-board FPC","rear to front","pull-up keeps sensor deselected","LSM6DSV320X","Main-motion chip select"
+"J101/J201 pin 9","MOTION_INT1","24-position front-board FPC","front to rear","GPIO38 input","LSM6DSV320X","Main-motion interrupt 1"
+"J101/J201 pin 10","MOTION_INT2","24-position front-board FPC","front to rear","GPIO47 input","LSM6DSV320X","Main-motion interrupt 2"
+"J101/J201 pin 11","Earth","24-position front-board FPC","power return","fixed pin map","Rear/front FH34SRJ-24S","Return between SPI groups"
+"J101/J201 pin 12","IMPACT_SCK","24-position front-board FPC","rear to front","GPIO17 source","IIS3DWB10IS","Impact SPI clock"
+"J101/J201 pin 13","IMPACT_MOSI","24-position front-board FPC","rear to front","GPIO18 source","IIS3DWB10IS","Impact SPI MOSI"
+"J101/J201 pin 14","IMPACT_MISO","24-position front-board FPC","front to rear","GPIO21 input","IIS3DWB10IS","Impact SPI MISO"
+"J101/J201 pin 15","IMPACT_CS_N","24-position front-board FPC","rear to front","pull-up keeps sensor deselected","IIS3DWB10IS","Impact chip select"
+"J101/J201 pin 16","IMPACT_INT1","24-position front-board FPC","front to rear","GPIO2 input","IIS3DWB10IS","Impact interrupt 1"
+"J101/J201 pin 17","IMPACT_INT2","24-position front-board FPC","front to rear","GPIO4 input","IIS3DWB10IS","Impact interrupt 2/trigger"
+"J101/J201 pin 18","Earth","24-position front-board FPC","power return","fixed pin map","Rear/front FH34SRJ-24S","Return"
+"J101/J201 pin 19","I2C_SDA","24-position front-board FPC","bidirectional open-drain","rear pull-up","BMP581; MMC5983MA","Shared I2C data"
+"J101/J201 pin 20","I2C_SCL","24-position front-board FPC","bidirectional open-drain","rear pull-up","BMP581; MMC5983MA","Shared I2C clock"
+"J101/J201 pin 21","MMC_INT","24-position front-board FPC","front to rear","GPIO44 input","MMC5983MA","Magnetometer interrupt"
+"J101/J201 pin 22","BMP_INT","24-position front-board FPC","front to rear","GPIO14 input","BMP581","Barometer interrupt"
+"J101/J201 pin 23","SENSOR_PWR_EN","24-position front-board FPC","rear to front","GPIO46 pull-down/default low","Front load switch","Sensor-rail enable"
+"J101/J201 pin 24","Earth","24-position front-board FPC","power return","fixed pin map","Rear/front FH34SRJ-24S","Return"
+"J102 pin 1","Earth","8-position HMI FPC","power return","fixed pin map","ST7789 daughterboard","Return"
+"J102 pin 2","+3V3_HMI","8-position HMI FPC","power","switched rail; 10uF + 1uF + 100nF","ST7789 daughterboard","HMI supply"
+"J102 pin 3","LCD_SCK","8-position HMI FPC","rear to daughterboard","GPIO10 branch through 22-47R","ST7789 daughterboard","Display SPI clock"
+"J102 pin 4","LCD_MOSI","8-position HMI FPC","rear to daughterboard","GPIO11 branch through 22-47R","ST7789 daughterboard","Display SPI MOSI"
+"J102 pin 5","LCD_RST_N","8-position HMI FPC","rear to daughterboard","GPIO41 with explicit passive default","ST7789 daughterboard","Display reset"
+"J102 pin 6","LCD_DC","8-position HMI FPC","rear to daughterboard","GPIO40","ST7789 daughterboard","Display data/command"
+"J102 pin 7","LCD_CS_N","8-position HMI FPC","rear to daughterboard","GPIO39; pull-up keeps display deselected","ST7789 daughterboard","Display chip select"
+"J102 pin 8","LCD_BL","8-position HMI FPC","rear to daughterboard","GPIO42-controlled load-switch/MOSFET; default off","ST7789 daughterboard","Backlight/HMI enable"

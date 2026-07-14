@@ -1,0 +1,66 @@
+(footprint "TI_DPY0002A_X1SON2_1.0x0.6mm"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "Texas Instruments DPY0002A X1SON-2 1.0 x 0.6 mm for ESD441")
+  (tags "TI DPY0002A ESD441 X1SON2")
+
+  (property "Reference" "REF**" (at 0 -1.2 0)
+    (layer "F.SilkS")
+    (uuid "45c513a7-4a99-4c3c-8e9b-b96b2a84c0ba")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "TI_DPY0002A_X1SON2_1.0x0.6mm" (at 0 1.2 0)
+    (layer "F.Fab")
+    (uuid "f2f25f95-1203-4d21-bc97-963ecc5ddc13")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "1da668c8-0776-4c97-b7b7-b61f38790c0c")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -0.75 -0.55)
+    (end 0.75 0.55)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "482f10db-cc4c-40a9-a379-823439de9991")
+  )
+
+  (fp_rect
+    (start -0.55 -0.35)
+    (end 0.55 0.35)
+    (stroke (width 0.1) (type default))
+    (fill none)
+    (layer "F.SilkS")
+    (uuid "1d70b86f-8dfa-4234-903f-e64497c3b6df")
+  )
+
+  (fp_rect
+    (start -0.5 -0.3)
+    (end 0.5 0.3)
+    (stroke (width 0.1) (type default))
+    (fill none)
+    (layer "F.Fab")
+    (uuid "5fed973a-9fa1-4ded-95ae-0bcc820f1583")
+  )
+
+  (pad "1" smd rect
+    (at -0.325 0)
+    (size 0.35 0.55)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "a98424f2-9dff-4e28-9764-5bd10495a068")
+  )
+
+  (pad "2" smd rect
+    (at 0.325 0)
+    (size 0.35 0.55)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "e4bfb551-8682-4058-87cb-70aa49b079e4")
+  )
+
+)

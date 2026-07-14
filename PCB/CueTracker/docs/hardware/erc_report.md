@@ -1,71 +1,77 @@
-# Cue Tracker final ERC and integrity report
+# Cue Tracker ERC and integrity report
 
-Date: 2026-07-14
+Date: 2026-07-15
 
-Schematic: `CueTracker.kicad_sch`  
-Saved SHA-256: `BB31FE39BBFECC8338DEB15E1AFD2D0D79964A0BE687B1576747710CBD2F9780`  
-Toolchain: KiCad 10.0.4 through KiCad MCP, followed by the read-only `kicad-schematic-audit` saved-file checker.
+Status: **PASS — 0 errors, 0 warnings**
 
-## Result
+The authoritative saved hierarchy is:
 
-- KiCad MCP close, reopen and ERC: **0 errors, 0 warnings**.
-- Independent saved-file ERC: **0 errors, 0 warnings, 0 findings**.
-- One logical sheet, 153 netlist components and 137 electrical nets.
-- 123 local labels; no global or hierarchical labels.
-- 80 Earth symbols; no GND symbols.
-- 45 `R_Small`, 59 `C_Small`, and no legacy `Device:R` or `Device:C` symbols.
-- All 59 capacitors have populated `Voltage` and `Dielectric` fields.
+- `CueTracker.kicad_sch`: hierarchy root.
+- `rear_main.kicad_sch`: MCU, USB, RF, battery/power, charger, audio and HMI.
+- `front_sensor.kicad_sch`: LSM6DSV320X, IIS3DWB10IS, MMC5983MA and BMP581.
 
-The project policy ignores `single_global_label`, `four_way_junction`, `simulation_model_issue` and `footprint_filter`. The final ERC JSON contains no error or warning violation under that saved policy. The standalone auditor independently reports balanced KiCad syntax, portable library tables and no convention findings.
+## Verification results
 
-## Critical electrical readback
-
-| Function | Verified result |
+| Check | Result |
 |---|---|
-| Shared power alert | `POWER_ALERT_N` endpoints are R18/2, U7/7, U3/36, U1/6 and U14/A1. The accidental `/PWR_ALRT` split is removed. |
-| Impact sensor | U11 is `CueTracker_Exact:IIS3DWB10ISTR`; pins 11/12 are on `+3V3`, and pins 1/5/10/14/15/16 are on Earth. |
-| Protection FET | Q1 is `CueTracker_Exact:CSD87313DMS` with the project DMS8 footprint. |
-| Current shunt | `CELL_N_RAW -> R44 60 mOhm -> Earth`; U10 VSS and CS sense opposite sides of the shunt. |
-| Charger | U7 VBUS/VAC = `VBUS`, BAT = `CHG_BAT`, BATSNS = `PACK_P`, SYS = `VSYS`, and CE = `/CHG_CE_N`. R20 holds CE high during reset. |
-| Gauge / bypass | U14 is fitted in the protected positive path; JP1 is the mutually exclusive open DNP bypass. |
-| ADC fallback | GPIO14 drives U9 TPS22919; GPIO1 senses the 1 MOhm / 330 kOhm / 100 nF divider from protected `PACK_P`. |
-| Memory rail | U3 sources `VDD_SPI` for U4 W25Q128JVSIQ and the memory I/O domain; it is not separately fed from `+3V3`. |
-| Debug | J2 is the M50-3600542R 2x5 1.27 mm vertical SMD header. |
-| Remote NTC | TH1 retains solder-wire pads and is DNP at PCBA; its remote 103AT-2 is installed by wiring after assembly. |
+| KiCad MCP ERC | 0 errors, 0 warnings, 0 informational violations |
+| ERC report | [`CueTracker_final_ERC.json`](CueTracker_final_ERC.json) |
+| KiCad netlist | [`CueTracker_final_netlist.xml`](CueTracker_final_netlist.xml), 172 components and 159 nets |
+| Manufacturing BOM | [`bom_manufacturing.csv`](bom_manufacturing.csv), 172 component rows and 51 columns |
+| Capacitor metadata | 62 of 62 capacitors have both `Voltage` and `Dielectric` fields |
+| PDF | [`CueTracker_schematic.pdf`](../../output/pdf/CueTracker_schematic.pdf), three pages |
+| Renders | Root, Rear Main and Front Sensor SVGs plus three inspected PNG pages under [`output/renders`](../../output/renders) |
+| Visual QA | All three PDF pages rendered successfully; no clipping or literal escaped-newline text was found |
+| Saved-file readback | Fresh-process KiCad MCP readback succeeded after the final save |
 
-## PWR_FLAG review
+The ERC JSON has no per-item exclusions. Four project-level checks remain intentionally set to `ignore`:
 
-Nine flags remain, each on an electrically distinct domain whose physical source is hidden from ERC by passive/connector/library pin types:
+- `single_global_label`: this hierarchy uses no global labels; local and hierarchical labels are the design contract.
+- `four_way_junction`: this is a drawing-style advisory; connectivity is verified from the saved netlist.
+- `simulation_model_issue`: SPICE simulation models are outside this schematic release.
+- `footprint_filter`: exact project footprints deliberately override some generic library filters. Footprint identity is checked from BOM metadata and manufacturer CAD; land-pattern validation remains a PCB-release task.
 
-| Flag | Net | Reason |
-|---|---|---|
-| `#FLG01` | `VBUS` | External USB source enters through passive connector pins. |
-| `#FLG02` | `VDD_SPI` | ESP32-S3 pin operates as the flash-supply output in this design, while the symbol pin type cannot express that mode. |
-| `#FLG03` | `Earth` | One annotation for the common system-return domain. |
-| `#FLG04` | `+3V3_RF` | L1 creates a distinct filtered net after the regulator output. |
-| `#FLG05` | `+3V3_AUDIO` | FB1 creates a distinct filtered net after the regulator output. |
-| `#FLG06` | `Net-(U10-VDD)` | Cell positive reaches U10 VDD through passive R30. |
-| `#FLG07` | `CELL_N_RAW` | Raw cell negative enters through passive battery pads and is intentionally isolated from Earth by R44. |
-| `#FLG08` | `PACK_P` | The protected rail is sourced through passive battery/FET pins. |
-| `#FLG09` | `CHG_BAT` | This separate charger/gauge rail has no symbol pin typed as a power output. |
+## Connector endpoint proof
 
-No extra flag is present on `+3V3`, `VSYS`, `REGN` or raw cell positive. See [`power_flag_contract.md`](power_flag_contract.md) for the review rule.
+Fresh netlist inspection proves that J101 and J201 both implement the normative 24-pin order:
 
-## Library and visual verification
+`1 Earth; 2 +3V3_SENSOR; 3 +3V3_SENSOR; 4 Earth; 5 MOTION_SCK; 6 MOTION_MOSI; 7 MOTION_MISO; 8 MOTION_CS_N; 9 MOTION_INT1; 10 MOTION_INT2; 11 Earth; 12 IMPACT_SCK; 13 IMPACT_MOSI; 14 IMPACT_MISO; 15 IMPACT_CS_N; 16 IMPACT_INT1; 17 IMPACT_INT2; 18 Earth; 19 I2C_SDA; 20 I2C_SCL; 21 MMC_INT; 22 BMP_INT; 23 SENSOR_PWR_EN; 24 Earth`.
 
-- `sym-lib-table` registers only `${KIPRJMOD}/CueTracker_Exact.kicad_sym`.
-- `CueTracker_Exact.kicad_sym` is writable and contains both exact symbols.
-- The project was saved, closed, reopened through MCP, checked, and closed saved again.
-- The final PDF was rendered as one A3 landscape page and inspected at full-page and block-crop scale. C16 and C58 use left-side fields to avoid collisions; the remaining compact audio area is dense but has no glyph overlap or clipping.
+J102 implements:
 
-## Artifact hashes
+`1 Earth; 2 +3V3_HMI; 3 LCD_SCK; 4 LCD_MOSI; 5 LCD_RST_N; 6 LCD_DC; 7 LCD_CS_N; 8 LCD_BL`.
 
-| Artifact | SHA-256 |
+## Power-flag readback
+
+| Reference | Net |
 |---|---|
-| `CueTracker.kicad_sch` | `BB31FE39BBFECC8338DEB15E1AFD2D0D79964A0BE687B1576747710CBD2F9780` |
-| `CueTracker_Exact.kicad_sym` | `13B09128908EBD629BE6D29E9B19520481E2E3E32C9144860FCCB6231EF39EEA` |
-| `CueTracker_final_ERC.json` | `8B4A2FECA38C612314360E65DAE8F07B36A68CFDADF76BE5894C0DFF0CF9A8E6` |
-| `CueTracker_final_netlist.xml` | `3E5CDD77B78F896787E3E126CB8C096D160EFD3A7AD41E8F4AEC1A59CA945B56` |
-| `CueTracker_final.svg` | `60A3E686C47EF6F232067AA0CDE08BBA7BD0E072A7D9F8C540DA4868C8D32660` |
-| `bom_manufacturing.csv` | `75A5369F4DDFCB630D76FFADB1383CDE30CF2BBC52CBADD837B9A611286EE7F6` |
-| `CueTracker_schematic_final.pdf` | `5DCB5AB4A30B812E3702781374BD10A8079632A00A2EA03B595432B7CC2D08C7` |
+| `#FLG101` | `VBUS_RAW` |
+| `#FLG102` | `Earth` |
+| `#FLG103` | `+3V3_RF` |
+| `#FLG104` | `+3V3_AUDIO` |
+| `#FLG105` | Protector VDD, unnamed `Net-(U10-VDD)` |
+| `#FLG106` | `CHG_BAT` |
+| `#FLG107` | `PACK_P` |
+| `#FLG108` | `CELL_N_RAW` |
+| `#FLG109` | `+3V3_SENSOR` |
+
+These are the nine flags justified in [`power_flag_contract.md`](power_flag_contract.md). No flags are placed on real regulator, charger, eFuse or load-switch outputs.
+
+## Release hashes
+
+| File | SHA-256 |
+|---|---|
+| `CueTracker.kicad_sch` | `9F4560BB70A54A8879883C79AB46827EA505615C9ACA628D320E1089EAA1A9E7` |
+| `rear_main.kicad_sch` | `790468765EF1BD33998A568D6682575F347B349E8DD7BDC62B6DD9B1323797E8` |
+| `front_sensor.kicad_sch` | `E25DE021BE6F68A58CC1897E6B903C9A15DE6CDB3024EC1C4E2CB990E853DFB2` |
+| `CueTracker_Exact.kicad_sym` | `FAA2B0CC868AA9D8C426F93E1D752E73090F31ECFDE8BC38E8C630B95C62378D` |
+| `CueTracker_final_ERC.json` | `B1E056710DEFF55EE0F4F877C2B468CF383A0082FC79F8C957B265061465CACE` |
+| `CueTracker_final_netlist.xml` | `0657D90D8FFBA701C66426677501EE9368A0EB4828B781F3A2B4D4B7F3271E9A` |
+| `bom_manufacturing.csv` | `62BE9458EB484104CEB4215FD4C328D07683F0D8AB1A4ADEA61AAB6B95D760C2` |
+| `CueTracker_schematic.pdf` | `FF10E01648DDEF7198738C267C4B7F20302D0FC803510ED97A3F0149EF7FC2C2` |
+
+## Remaining PCB and hardware validation
+
+ERC does not validate routed-copper ampacity, shunt Kelvin geometry, RF tuning/keepout, regulator and charger thermals, protector-FET SOA, connector contact-side mirroring, enclosure venting, acoustic response or MEMS placement. The current PCB file has no completed routing, so the at-least-3-A copper requirement must be proven during PCB layout.
+
+The supplied Hirose footprints match the imported copper geometry and carry the STEP models, but their current signal pads use full-size paste openings. Replicate the vendor's reduced paste apertures and explicit mask treatment before production release. The purchased ST7789 daughterboard drawing/contact orientation also remains a required mechanical confirmation.

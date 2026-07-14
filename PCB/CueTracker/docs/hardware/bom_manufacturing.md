@@ -1,75 +1,41 @@
 # Cue Tracker manufacturing BOM notes
 
-Date: 2026-07-14
+Date: 2026-07-15
 
-Schematic basis: `CueTracker.kicad_sch`, SHA-256 `BB31FE39BBFECC8338DEB15E1AFD2D0D79964A0BE687B1576747710CBD2F9780`.
+Status: **GENERATED FROM FINAL HIERARCHY — ENGINEERING BOM**
 
-[`bom_manufacturing.csv`](bom_manufacturing.csv) is the 149-row population BOM. The final XML netlist contains 153 components; the four intentional DNP entries are listed separately below. Blank manufacturer or MPN fields still require an approved orderable selection before procurement.
+[`bom_manufacturing.csv`](bom_manufacturing.csv) was regenerated from the final saved hierarchy through KiCad MCP's Python-BOM XML export. It contains 172 component rows and 51 columns, including fitted/DNP state, manufacturer/MPN and sourcing fields where assigned, package, voltage, dielectric, population, variant, assembly and notes metadata. All 62 capacitors retain both `Voltage` and `Dielectric` fields.
 
-## Principal fitted parts
+This is an engineering BOM, not an authorization to purchase. Generic passives, switches, test points and other commodity lines still require approved orderable MPNs, lifecycle checks and assembly-house substitutions before procurement release.
 
-| Ref | Manufacturer | Orderable part | Assigned package / footprint |
+## Required principal-part contract
+
+The regenerated BOM must include and reconcile at least:
+
+- ESP32-S3-PICO-1-N8R8, 8 MB in-package flash and 8 MB in-package PSRAM.
+- Two Hirose FH34SRJ-24S-0.5SH(50), with LCSC C324726, plus the FH34SRJ-8S-0.5SH(50) HMI connector.
+- BQ25611D, TPS63802, BQ298217, active CSD87313DMS and WSL2512R0200FEA 20 mOhm shunt.
+- TPS25947-class eFuse, ESD441-class VBUS TVS, TPD2E2U06-class CC protection and retained USBLC6-2SC6 data-line protection.
+- TUSB320LAI, LSM6DSV320XTR, IIS3DWB10ISTR, BMP581, MMC5983MA, IM73A135V01XTSA1 and TLV320ADC6120IRTER.
+- CrossAir CA-C03 as the populated antenna; KH-3216-H0209 remains an unplaced, non-interchangeable evaluation alternative.
+- Samsung INR18650-35E as the reference cell documentation item, factory-welded tab/plated-slot interfaces and the DNP TH1 remote-NTC solder pads.
+
+## Mutually exclusive population variants
+
+| Variant | BQ27427 | At-least-3-A bypass | Current rule |
 |---|---|---|---|
-| U1 | Texas Instruments | TUSB320LAIRWBR | RWB0012A X2QFN-12 |
-| U2 | STMicroelectronics | USBLC6-2SC6 | SOT-23-6 |
-| U3 | Espressif Systems | ESP32-S3R8 | QFN-56-1EP, 7 x 7 mm |
-| U4 | Winbond | W25Q128JVSIQ | SOIC-8, 5.3 mm |
-| U5 | Texas Instruments | TPS63802DLAR | DLA0010A VSON-HR-10 |
-| U6 | Bosch Sensortec | BMP581 | LGA-10, 2 x 2 mm |
-| U7 | Texas Instruments | BQ25611DRTWR | RTW0024A WQFN-24 + EP |
-| U8 | MEMSIC | MMC5983MA | LGA-16, 3 x 3 mm |
-| U9 | Texas Instruments | TPS22919DCKR | DCK0006A SC-70-6 |
-| U10 | Texas Instruments | BQ298217RUGR | RUG0008A X2QFN-8 |
-| U11 | STMicroelectronics | IIS3DWB10ISTR | Wettable-flank LLGA-16, project footprint |
-| U12 | STMicroelectronics | LSM6DSV320XTR | LGA-14, 3 x 2.5 mm |
-| U13 | Texas Instruments | TLV320ADC6120IRTER | RTE0020A WQFN-20 + EP |
-| U14 | Texas Instruments | BQ27427YZFR | YZF0009 DSBGA-9 |
-| Q1 | Texas Instruments | CSD87313DMS | Project TI DMS8 land, 3.3 x 3.3 mm |
-| MK1 | Infineon Technologies | IM73A135V01XTSA1 | PG-LLGA-5-2 |
-| AE1 | CrossAir | CA-C03 | Project 2.4 GHz ceramic-antenna land |
-| Y1 | TXC | 7M-40.000MEEQ-T | 3225, four pad |
-| Y2 | Seiko Epson | X1A0001410001 | 32.768 kHz, 3215 |
-| J1 | GCT | USB4105-GF-A | Top-mount USB-C receptacle |
-| J2 | Harwin | M50-3600542R | 2x5, 1.27 mm vertical SMD header |
+| `R0_3A` default | DNP | Populate | Battery path designed for at least 3 A normal current and appropriate protection transients |
+| `R0_GAUGE_2A` optional | Populate | DNP | Long-term RMS battery-path current limited to 2 A or less |
 
-## Intentional DNP entries
+The two paths must never be fitted together. The switched ESP32 ADC divider remains available as voltage-only fallback.
 
-| Ref | Value / function | Assembly rule |
-|---|---|---|
-| C12 | 100 nF optional GPIO0 capacitor | Leave open unless boot timing is validated. |
-| C57 | 100 nF optional BQ298217 CTR timing capacitor | Leave open while CTR is held low. |
-| JP1 | BQ27427 gauge bypass | Leave open with U14 fitted; close only in the gauge-omitted variant. |
-| TH1 | Remote 10 kOhm NTC solder pads | No PCBA-installed part. Hand-wire a Semitec 103AT-2 to the pads and bond it to the cell, unless `TS_IGNORE` is deliberately validated. |
+## Other intentional assembly states
 
-## Power-path and fallback parts
+- TH1 is DNP for automated PCBA because it represents solder pads; the remote 10 kOhm NTC is hand-wired and bonded to the cell unless a separately validated `TS_IGNORE` configuration is approved.
+- Charger D+/D- terminate only at unused/test pads.
+- TLV320ADC6120 channel 2 terminates at test pads or an optional expansion connector.
+- The external 32.768 kHz crystal/load network is populated only if the firmware and measured standby/timing results justify it; otherwise it must be a clearly controlled DNP group.
 
-| Refs | Function / requirement |
-|---|---|
-| L2 | Coilcraft XFL4015-471MEC, 470 nH, TPS63802 energy-storage inductor. |
-| L4 | Eaton MPI4020V2-1R0-R, 1 uH, BQ25611D charger inductor. |
-| R20 | 10 kOhm pull-up on `/CHG_CE_N`; charging remains disabled through MCU reset. |
-| R23, R24, C34 | 1 MOhm / 330 kOhm / 100 nF switched ADC divider; `Vpack = Vadc x 4.030303`. |
-| R25 | 100 kOhm TPS22919 ON pull-down; divider defaults off. |
-| R44 | Vishay WSL2512R0600FEA, 60 mOhm, 1%, 1 W protection-current shunt; Kelvin route. |
-| BT1 | Direct solder-wire pads for a pre-tabbed 1S 18650 cell or mechanically qualified 21700 alternative. |
+## Generation and procurement gate
 
-## Capacitor procurement metadata
-
-- All 59 capacitors carry non-empty `Voltage` and `Dielectric` properties.
-- Displayed values contain capacitance only; dielectric and voltage are hidden BOM properties.
-- The metadata is a minimum electrical requirement, not an approved MPN. Confirm effective capacitance after DC bias, tolerance, temperature range, package, ripple current and lifecycle before release.
-- Crystal load capacitors use C0G/NP0. Bulk and decoupling ceramics use the documented X5R/X7R requirements.
-
-## Population alternatives
-
-- AE1 CA-C03 is the current antenna. KH-3216-H0209 is not placed and is not a drop-in alternative; it needs its own footprint, keepout and RF tuning.
-- U14 BQ27427 is fitted by default and JP1 remains open. If U14 is omitted, close JP1 and use the U9 switched-divider path for voltage-only estimation.
-- TH1's DNP status means “no board-installed thermistor or connector,” not “temperature sensing is unnecessary.”
-
-## Release blockers
-
-1. Approve exact MPNs for generic passives, LEDs, switches and test hardware.
-2. Qualify the exact pre-tabbed cell, wiring, strain relief, remote NTC placement and charge limits.
-3. Verify all custom land patterns against manufacturer drawings, especially IIS3DWB10ISTR, CSD87313DMS, fine-pitch TI packages and CA-C03.
-4. Validate effective input/output capacitance, switching-loop layout, shunt/FET heating and protection thresholds on hardware.
-5. Regenerate the BOM whenever the saved schematic hash changes.
+The source intermediate is [`CueTracker_bom_intermediate.xml`](../../output/bom/CueTracker_bom_intermediate.xml), generated from the same saved hierarchy used for ERC, netlist, PDF and renders. The CSV is one row per schematic reference so mutually exclusive and hand-assembly states remain explicit. Before procurement, assign exact approved orderable MPNs to every remaining generic line, enforce the `BAT_CURRENT_PATH` variant rule, approve the RTC population decision and validate all manufacturer land patterns and paste apertures.

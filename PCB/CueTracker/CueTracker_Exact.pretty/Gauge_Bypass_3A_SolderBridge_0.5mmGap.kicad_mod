@@ -1,0 +1,66 @@
+(footprint "Gauge_Bypass_3A_SolderBridge_0.5mmGap"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "Mutually exclusive BQ27427 bypass; two 4 x 4 mm exposed copper pads with 0.5 mm gap for a controlled heavy solder or copper-strap bridge; minimum 3 A normal current and protector fault transient validation required")
+  (tags "battery gauge bypass high current solder bridge 3A")
+
+  (property "Reference" "REF**" (at 0 -3.3 0)
+    (layer "F.SilkS")
+    (uuid "75c33e00-dbbc-4a03-8540-a75a0f503acc")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "Gauge_Bypass_3A_SolderBridge_0.5mmGap" (at 0 3.3 0)
+    (layer "F.Fab")
+    (uuid "b63f406d-097c-4439-a493-dc0bc06d49dc")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "e1d59d59-655b-47d5-a289-78a0c3c52016")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -4.6 -2.3)
+    (end 4.6 2.3)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "c4e9f29a-4c12-4b5d-8f9e-b9c8a4300799")
+  )
+
+  (fp_rect
+    (start -4.4 -2.2)
+    (end 4.4 2.2)
+    (stroke (width 0.2) (type default))
+    (fill none)
+    (layer "F.SilkS")
+    (uuid "ae5d5cf4-02c1-44c9-a06c-c9223562438e")
+  )
+
+  (fp_rect
+    (start -4.25 -2)
+    (end 4.25 2)
+    (stroke (width 0.1) (type default))
+    (fill none)
+    (layer "F.Fab")
+    (uuid "b348972c-41a9-4409-8849-928170626ba4")
+  )
+
+  (pad "1" smd rect
+    (at -2.25 0 0)
+    (size 4 4)
+    (layers "F.Cu" "F.Mask")
+    (uuid "56f59e57-5147-413a-a84b-56effbd284af")
+  )
+
+  (pad "2" smd rect
+    (at 2.25 0 0)
+    (size 4 4)
+    (layers "F.Cu" "F.Mask")
+    (uuid "c8351405-e83e-41a9-8a9a-3371307eed33")
+  )
+
+)

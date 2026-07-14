@@ -1,0 +1,150 @@
+(footprint "TI_RPW0010A_VQFN-HR-10_2x2mm"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "Texas Instruments RPW0010A VQFN-HR-10 2.0 x 2.0 mm exact HotRod land geometry for TPS25947")
+  (tags "TI RPW0010A VQFN-HR TPS25947")
+
+  (property "Reference" "REF**" (at 0 -2 0)
+    (layer "F.SilkS")
+    (uuid "192c460b-8f70-43eb-8c95-d5baa6e5e936")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "TI_RPW0010A_VQFN-HR-10_2x2mm" (at 0 2 0)
+    (layer "F.Fab")
+    (uuid "d2cf896a-f9c9-41e5-9a28-b98609a31040")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "963ad50e-f24d-4581-8ce6-78d16055ad78")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -1.45 -1.45)
+    (end 1.45 1.45)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "438acd02-4887-411e-ab17-ab2d1280e177")
+  )
+
+  (fp_rect
+    (start -1.05 -1.05)
+    (end 1.05 1.05)
+    (stroke (width 0.12) (type default))
+    (fill none)
+    (layer "F.SilkS")
+    (uuid "7aadefa9-6477-42f9-b518-9a9cb61bbfc0")
+  )
+
+  (fp_rect
+    (start -1 -1)
+    (end 1 1)
+    (stroke (width 0.1) (type default))
+    (fill none)
+    (layer "F.Fab")
+    (uuid "77c68419-7652-4f87-a184-87208a7c739b")
+  )
+
+  (pad "1" smd rect
+    (at -0.9 -0.7 0)
+    (size 0.7 0.4)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "7f75a23a-826f-4fa0-a8f2-dca13a05567e")
+  )
+
+  (pad "1" smd rect
+    (at -0.725 -0.875 90)
+    (size 0.75 0.35)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "00c51add-c7b5-47c7-ab44-79a116e7b518")
+  )
+
+  (pad "2" smd rect
+    (at -0.9 -0.225 0)
+    (size 0.7 0.35)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "abfffdd5-93c3-464d-ba34-dab78b4f73af")
+  )
+
+  (pad "3" smd rect
+    (at -0.9 0.225 0)
+    (size 0.7 0.35)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "598f0dbd-8c9f-4fd2-a28a-22bd36bca89f")
+  )
+
+  (pad "4" smd rect
+    (at -0.9 0.7 0)
+    (size 0.7 0.4)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "54d69bb6-ce9b-4a45-bb5a-67b3e661da4c")
+  )
+
+  (pad "4" smd rect
+    (at -0.725 0.875 90)
+    (size 0.75 0.35)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "7ff91253-e70b-44db-8314-c16803080699")
+  )
+
+  (pad "5" smd rect
+    (at -0.25 0 0)
+    (size 0.4 2.5)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "f02be5c3-06da-4ebe-a615-a4305f2af939")
+  )
+
+  (pad "6" smd rect
+    (at 0.25 0 0)
+    (size 0.4 2.5)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "94271435-b57f-4688-bc63-1e1fe27cf53f")
+  )
+
+  (pad "7" smd rect
+    (at 0.725 0.875 90)
+    (size 0.75 0.35)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "e34285b4-7ac6-4ea6-b832-527c7c573021")
+  )
+
+  (pad "7" smd rect
+    (at 0.9 0.7 0)
+    (size 0.7 0.4)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "16f8a2b9-e550-4f0a-910d-b995944584f5")
+  )
+
+  (pad "8" smd rect
+    (at 0.9 0.225 0)
+    (size 0.7 0.35)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "97362a57-a035-41d5-8bb2-fb4d59c52193")
+  )
+
+  (pad "9" smd rect
+    (at 0.9 -0.225 0)
+    (size 0.7 0.35)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "546844de-78dd-47fb-8695-8ec35263c5b9")
+  )
+
+  (pad "10" smd rect
+    (at 0.725 -0.875 90)
+    (size 0.75 0.35)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "60ad4241-1fc3-4d2e-974d-d8ae72e58957")
+  )
+
+  (pad "10" smd rect
+    (at 0.9 -0.7 0)
+    (size 0.7 0.4)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "f5d722e2-7f8d-4933-91d2-11abb786ae5f")
+  )
+
+)
