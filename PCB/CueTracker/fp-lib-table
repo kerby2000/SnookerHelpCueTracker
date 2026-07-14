@@ -1,0 +1,5 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "cust_fp") (type "KiCad") (uri "${KIPRJMOD}/cust_fp") (options "") (descr ""))
+	(lib (name "CueTracker_Exact") (type "KiCad") (uri "${KIPRJMOD}/CueTracker_Exact.pretty") (options "") (descr "Exact manufacturer-verified Cue Tracker footprints"))
+)

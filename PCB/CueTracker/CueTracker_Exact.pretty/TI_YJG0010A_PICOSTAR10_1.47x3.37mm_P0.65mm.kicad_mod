@@ -1,0 +1,104 @@
+(footprint "TI_YJG0010A_PICOSTAR10_1.47x3.37mm_P0.65mm"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "TI YJG PICOSTAR-10 land pattern for CSD87501L; 1.47 x 3.37 mm body, 0.65 mm pitch, 0.30 mm circular lands")
+  (tags "TI YJG0010A PICOSTAR10 CSD87501L common drain MOSFET")
+
+  (property "Reference" "REF**" (at 0 -2.35 0)
+    (layer "F.SilkS")
+    (uuid "0678d92f-ca3f-46ea-9c27-24aad905c9e6")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "TI_YJG0010A_PICOSTAR10_1.47x3.37mm_P0.65mm" (at 0 2.35 0)
+    (layer "F.Fab")
+    (uuid "25542936-b31f-4d01-949f-2e81945058b6")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "e6a4a4c9-21e4-4af5-9c98-01bfa271fcb5")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -0.99 -1.94)
+    (end 0.99 1.94)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "90874006-8f58-4363-a3b8-42ec617cdc40")
+  )
+
+  (pad "A1" smd circle
+    (at -0.325 -1.3)
+    (size 0.3 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "13cdadbc-df88-4ab9-b666-6d22e1b58998")
+  )
+
+  (pad "A2" smd circle
+    (at 0.325 -1.3)
+    (size 0.3 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "8399f8f8-2858-4599-9aa7-26d5cccf7cb9")
+  )
+
+  (pad "B1" smd circle
+    (at -0.325 -0.65)
+    (size 0.3 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "488d0aa2-0631-407b-bc15-9240b678a258")
+  )
+
+  (pad "B2" smd circle
+    (at 0.325 -0.65)
+    (size 0.3 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "28ec8a1c-18c2-4d62-a74f-9f046ef60310")
+  )
+
+  (pad "C1" smd circle
+    (at -0.325 0)
+    (size 0.3 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "35dee5bd-bbea-4f9e-9b20-ad9ac1a411a8")
+  )
+
+  (pad "C2" smd circle
+    (at 0.325 0)
+    (size 0.3 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "d9f873c8-4556-49f4-a7d6-93733fca8e13")
+  )
+
+  (pad "D1" smd circle
+    (at -0.325 0.65)
+    (size 0.3 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "f9fa6b55-f75e-479f-ad26-78ede81146b5")
+  )
+
+  (pad "D2" smd circle
+    (at 0.325 0.65)
+    (size 0.3 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "7cb2c027-5011-41ac-8003-a674eca2c037")
+  )
+
+  (pad "E1" smd circle
+    (at -0.325 1.3)
+    (size 0.3 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "c0c48b67-54bd-4cbe-93a6-33694dfb08df")
+  )
+
+  (pad "E2" smd circle
+    (at 0.325 1.3)
+    (size 0.3 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "ddd2f5a8-c12f-4c4f-97ea-ccd304c7a36e")
+  )
+
+)

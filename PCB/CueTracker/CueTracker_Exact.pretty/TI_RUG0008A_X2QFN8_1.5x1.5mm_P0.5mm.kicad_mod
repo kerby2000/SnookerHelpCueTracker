@@ -1,0 +1,99 @@
+(footprint "TI_RUG0008A_X2QFN8_1.5x1.5mm_P0.5mm"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "Texas Instruments RUG0008A X2QFN-8, 1.5x1.5 mm, 0.5 mm pitch; BQ298217RUGR")
+  (tags "TI RUG0008A X2QFN8 BQ298217")
+
+  (property "Reference" "REF**" (at 0 -1.6 0)
+    (layer "F.SilkS")
+    (uuid "a740bed4-2037-4b02-8669-0d39e601d612")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "TI_RUG0008A_X2QFN8_1.5x1.5mm_P0.5mm" (at 0 1.6 0)
+    (layer "F.Fab")
+    (uuid "be9ce2d0-c180-46b0-8c7c-45b5d935cfc5")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "98c0ea99-d593-4dec-b316-d3923fc9bdcd")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -1.2 -1.2)
+    (end 1.2 1.2)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "176c90e9-e965-4103-9bc6-a1e64d856247")
+  )
+
+  (fp_rect
+    (start -0.75 -0.75)
+    (end 0.75 0.75)
+    (stroke (width 0.1) (type default))
+    (fill none)
+    (layer "F.Fab")
+    (uuid "7a230d74-4fa0-4321-8b17-dba9cc19ef98")
+  )
+
+  (pad "1" smd rect
+    (at -0.675 -0.5 0)
+    (size 0.55 0.25)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "aafebd64-d7a4-4103-9036-8ef35b9efdfd")
+  )
+
+  (pad "2" smd rect
+    (at -0.675 0 0)
+    (size 0.55 0.2)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "c06474f1-037b-43ca-af21-bf42d262bbc3")
+  )
+
+  (pad "3" smd rect
+    (at -0.675 0.5 0)
+    (size 0.55 0.25)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "4847cdcc-23ba-4fe8-b940-a38aebfb8a4e")
+  )
+
+  (pad "4" smd rect
+    (at 0 0.65 90)
+    (size 0.6 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "cf0aa357-5685-448f-bd22-0d1485f8151e")
+  )
+
+  (pad "5" smd rect
+    (at 0.675 0.5 0)
+    (size 0.55 0.25)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "335b209d-1d7f-4645-beb6-38b51e483e18")
+  )
+
+  (pad "6" smd rect
+    (at 0.675 0 0)
+    (size 0.55 0.2)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "e102ab84-08a0-4f6b-b014-32d5f41cbc53")
+  )
+
+  (pad "7" smd rect
+    (at 0.675 -0.5 0)
+    (size 0.55 0.25)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "a6e203cc-f237-4b96-897a-c677255ac62e")
+  )
+
+  (pad "8" smd rect
+    (at 0 -0.65 90)
+    (size 0.6 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "20d7c3db-63e1-4e9a-ac27-dceda210c500")
+  )
+
+)

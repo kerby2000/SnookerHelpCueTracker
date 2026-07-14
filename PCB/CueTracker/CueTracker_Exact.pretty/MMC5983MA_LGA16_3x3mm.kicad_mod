@@ -1,0 +1,146 @@
+(footprint "MMC5983MA_LGA16_3x3mm"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "MEMSIC MMC5983MA LGA-16 3.0x3.0x1.0mm. Exact official land pattern: 0.5mm pitch perimeter, 0.300mm tangential x 0.450mm radial lands, outer pad span 2.550mm. Top-view pin-1 mark at top-right.")
+  (tags "MEMSIC MMC5983MA LGA16 3x3")
+
+  (property "Reference" "REF**" (at 0 -2.2 0)
+    (layer "F.SilkS")
+    (uuid "64bc3642-6d78-481f-acdc-e1dbb57e7a40")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "MMC5983MA_LGA16_3x3mm" (at 0 2.2 0)
+    (layer "F.Fab")
+    (uuid "923b6249-4e0a-47b7-8ac8-c7d715738836")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "42257649-5dbc-401a-a2f8-053e35fc1ffa")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -1.75 -1.75)
+    (end 1.75 1.75)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "36d52a3e-aa6c-4129-847f-44176ea10b6e")
+  )
+
+  (pad "4" smd rect
+    (at -0.75 1.05)
+    (size 0.3 0.45)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "e6318e8e-f0ea-4db1-a184-ef167a3c5a4c")
+  )
+
+  (pad "3" smd rect
+    (at -0.25 1.05)
+    (size 0.3 0.45)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "fb41c3f5-c7b9-43ff-ab4d-b051c7d8d029")
+  )
+
+  (pad "2" smd rect
+    (at 0.25 1.05)
+    (size 0.3 0.45)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "086ea053-6743-4531-a0dd-66d4e41561f0")
+  )
+
+  (pad "1" smd rect
+    (at 0.75 1.05)
+    (size 0.3 0.45)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "93071c76-87db-4900-904c-8cd7c363477c")
+  )
+
+  (pad "16" smd rect
+    (at 1.05 0.75)
+    (size 0.45 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "3a166a14-5d90-4450-8610-e5730cb13512")
+  )
+
+  (pad "15" smd rect
+    (at 1.05 0.25)
+    (size 0.45 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "e18c9115-b485-453a-ad99-da2cd1577e31")
+  )
+
+  (pad "14" smd rect
+    (at 1.05 -0.25)
+    (size 0.45 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "5fa752ea-34f3-447b-84f0-6f43715d8843")
+  )
+
+  (pad "13" smd rect
+    (at 1.05 -0.75)
+    (size 0.45 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "2f248841-b300-4279-ae8b-9c406da6df26")
+  )
+
+  (pad "9" smd rect
+    (at -0.75 -1.05)
+    (size 0.3 0.45)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "e4617c39-12f0-404f-92a3-bc2d57d0e04f")
+  )
+
+  (pad "10" smd rect
+    (at -0.25 -1.05)
+    (size 0.3 0.45)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "cb7f1f20-e0c3-434f-8f0c-e5c3803a3b6c")
+  )
+
+  (pad "11" smd rect
+    (at 0.25 -1.05)
+    (size 0.3 0.45)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "de476e48-4957-4b15-9113-e98de32cf3eb")
+  )
+
+  (pad "12" smd rect
+    (at 0.75 -1.05)
+    (size 0.3 0.45)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "809c0b37-8664-4d86-8b32-9f4faed35fcb")
+  )
+
+  (pad "5" smd rect
+    (at -1.05 0.75)
+    (size 0.45 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "26ba1b4c-cfba-4f52-b2ab-8249b7b10d31")
+  )
+
+  (pad "6" smd rect
+    (at -1.05 0.25)
+    (size 0.45 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "933f2fcf-1937-46f9-9ce4-ac58bb54e3b3")
+  )
+
+  (pad "7" smd rect
+    (at -1.05 -0.25)
+    (size 0.45 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "f578ba86-563f-4874-841a-c4b0ada48ad5")
+  )
+
+  (pad "8" smd rect
+    (at -1.05 -0.75)
+    (size 0.45 0.3)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "fbb9af78-a17e-486d-8a3e-01d1bfb3486c")
+  )
+
+)

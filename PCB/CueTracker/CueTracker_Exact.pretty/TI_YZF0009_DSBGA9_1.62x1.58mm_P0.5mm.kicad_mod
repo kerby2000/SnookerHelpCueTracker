@@ -1,0 +1,106 @@
+(footprint "TI_YZF0009_DSBGA9_1.62x1.58mm_P0.5mm"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "Texas Instruments YZF0009 DSBGA-9, 1.62x1.58 mm nominal, 3x3 layout, 0.5 mm pitch, 0.245 mm NSMD lands; BQ27427YZFR")
+  (tags "TI YZF0009 DSBGA9 BQ27427")
+
+  (property "Reference" "REF**" (at 0 -1.45 0)
+    (layer "F.SilkS")
+    (uuid "70241afa-9658-4e95-93f1-09ae12aa106c")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "TI_YZF0009_DSBGA9_1.62x1.58mm_P0.5mm" (at 0 1.45 0)
+    (layer "F.Fab")
+    (uuid "e5ff90a2-09d2-4479-b883-ac7a6dd96b4e")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "5b3ee67a-2bfc-4a91-9bd5-0fb8d46a3eef")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -1.06 -1.04)
+    (end 1.06 1.04)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "4884f157-6498-4ae0-81f6-1b732be0a605")
+  )
+
+  (fp_rect
+    (start -0.81 -0.79)
+    (end 0.81 0.79)
+    (stroke (width 0.1) (type default))
+    (fill none)
+    (layer "F.Fab")
+    (uuid "47c8c246-dde4-4acf-bce0-fad958d6bf38")
+  )
+
+  (pad "A1" smd circle
+    (at -0.5 -0.5 0)
+    (size 0.245 0.245)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "9c22328b-1999-4c30-8af0-fde9e0571471")
+  )
+
+  (pad "A2" smd circle
+    (at 0 -0.5 0)
+    (size 0.245 0.245)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "c3aa37a6-eeba-423a-b258-c861b0195acf")
+  )
+
+  (pad "A3" smd circle
+    (at 0.5 -0.5 0)
+    (size 0.245 0.245)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "2a84c812-3f54-474f-9e28-de59779b004c")
+  )
+
+  (pad "B1" smd circle
+    (at -0.5 0 0)
+    (size 0.245 0.245)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "e9401c91-2bf2-4d3e-a002-311e97080983")
+  )
+
+  (pad "B2" smd circle
+    (at 0 0 0)
+    (size 0.245 0.245)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "770a1a49-9896-4569-8082-476eb0f58eed")
+  )
+
+  (pad "B3" smd circle
+    (at 0.5 0 0)
+    (size 0.245 0.245)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "7293c8f6-c312-4b53-8790-5a6e1b4542a7")
+  )
+
+  (pad "C1" smd circle
+    (at -0.5 0.5 0)
+    (size 0.245 0.245)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "d31359c4-fdfa-4730-ab9e-6b39f98fc36f")
+  )
+
+  (pad "C2" smd circle
+    (at 0 0.5 0)
+    (size 0.245 0.245)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "d3cc41c1-1e86-4b24-a5bb-16e64d3cbaab")
+  )
+
+  (pad "C3" smd circle
+    (at 0.5 0.5 0)
+    (size 0.245 0.245)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "84446e14-f9bd-4ce9-9548-0d3b58dcd35d")
+  )
+
+)

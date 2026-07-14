@@ -1,0 +1,90 @@
+(footprint "BQ25180_YBG0008_DSBGA"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "TI BQ25180 YBG0008 DSBGA, body 1.6x1.1mm, 2x4 0.4mm pitch, TI-recommended 0.23mm NSMD circular lands. Top view A1 upper-left.")
+  (tags "BQ25180 YBG0008 DSBGA 0.4mm")
+
+  (property "Reference" "REF**" (at 0 -1.6 0)
+    (layer "F.SilkS")
+    (uuid "1e349b6a-54d9-4f9c-9753-93e125a49cfb")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "BQ25180_YBG0008_DSBGA" (at 0 1.6 0)
+    (layer "F.Fab")
+    (uuid "2ab83208-68eb-4942-9bfe-44312afb35b8")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "a3d2b2d0-1895-4aa8-a217-ab4dfa91d5e4")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -0.8 -1.05)
+    (end 0.8 1.05)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "dd9a0aa7-2fcb-44c1-a013-df80ec03621c")
+  )
+
+  (pad "A1" smd circle
+    (at -0.2 0.6)
+    (size 0.23 0.23)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "81c4a5cc-e1f7-4392-ae8d-a212ff7bb8d3")
+  )
+
+  (pad "A2" smd circle
+    (at 0.2 0.6)
+    (size 0.23 0.23)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "dabffa72-1666-4adc-9097-6abe66888155")
+  )
+
+  (pad "B1" smd circle
+    (at -0.2 0.2)
+    (size 0.23 0.23)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "c18172c2-896c-44af-804c-6be928fae0fe")
+  )
+
+  (pad "B2" smd circle
+    (at 0.2 0.2)
+    (size 0.23 0.23)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "51370440-8d72-4d14-bf6a-cedb0e770ee8")
+  )
+
+  (pad "C1" smd circle
+    (at -0.2 -0.2)
+    (size 0.23 0.23)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "1d86fdc8-6062-4812-8d10-0cb5609bf2b1")
+  )
+
+  (pad "C2" smd circle
+    (at 0.2 -0.2)
+    (size 0.23 0.23)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "b1544288-8c63-4fce-b471-fded78d4461f")
+  )
+
+  (pad "D1" smd circle
+    (at -0.2 -0.6)
+    (size 0.23 0.23)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "c0d6bf4c-38b1-4674-89e4-ed574f19d519")
+  )
+
+  (pad "D2" smd circle
+    (at 0.2 -0.6)
+    (size 0.23 0.23)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "2d97bca0-f039-42ff-98a9-d23273d221cc")
+  )
+
+)

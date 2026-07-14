@@ -1,0 +1,50 @@
+(footprint "SolderWirePads_1x02_P5.08mm_3x4mm"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "Two large exposed SMD solder pads for welded-tab battery pack leads")
+  (tags "wire solder pad battery")
+
+  (property "Reference" "REF**" (at 0 -3 0)
+    (layer "F.SilkS")
+    (uuid "15cf795a-df59-46f6-8e77-1f840c6d906f")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "SolderWirePads_1x02_P5.08mm_3x4mm" (at 0 3 0)
+    (layer "F.Fab")
+    (uuid "1958ec90-f30a-4c3e-b5d6-59414c61f605")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "b5952105-087f-40f3-9ca8-3fbbdeae9252")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -4.29 -2.25)
+    (end 4.29 2.25)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "a34d2f63-3531-421e-a7b2-7010c9c34c85")
+  )
+
+  (pad "1" smd roundrect
+    (at -2.54 0)
+    (size 3 4)
+    (layers "F.Cu" "F.Mask")
+    (roundrect_rratio 0.25)
+    (uuid "6a468494-10fb-40a3-a7c0-7fa249fb5404")
+  )
+
+  (pad "2" smd roundrect
+    (at 2.54 0)
+    (size 3 4)
+    (layers "F.Cu" "F.Mask")
+    (roundrect_rratio 0.25)
+    (uuid "9b1987c3-efc4-45a0-af06-5f92df1cba4f")
+  )
+
+)

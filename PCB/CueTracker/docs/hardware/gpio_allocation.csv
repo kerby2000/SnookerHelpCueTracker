@@ -1,0 +1,35 @@
+gpio_or_pin,net,peripheral,direction,boot_or_default,connected_device,reason
+GPIO0 / QFN5,CHIP_BOOT,download strap/button,input at reset,"internal weak pull-up; R8 10k to +3V3; button to Earth",BOOT1,Native USB/UART download recovery
+GPIO1 / QFN6,BAT_ADC_SENSE,ADC1_CH0,analogue input,"non-strap; switched divider disconnected when disabled","U9 TPS22919; R23 1M / R24 330k divider; C34 100nF to Earth",ADC1 battery-voltage fallback
+GPIO2 / QFN7,IMPACT_INT1,GPIO interrupt,input,non-strap,"U11 IIS3DWB10ISTR INT1; TP10",Impact FIFO/data-ready interrupt
+GPIO3 / QFN8,/CHG_CE_N,BQ25611D charge enable / JTAG-source strap,"strap input at reset; output after initialization","R20 10k to +3V3 keeps charge off at reset; default eFuses select USB Serial/JTAG; review pad-JTAG strap variants","U7 BQ25611D /CE; R20",Program 180mA ICHG / 60mA precharge and termination / 4.190V VREG / source-safe IINDPM before driving low
+GPIO4 / QFN9,IMPACT_INT2,GPIO interrupt,input,non-strap,"U11 IIS3DWB10ISTR INT2/TRIG; TP11",Second impact/status interrupt
+GPIO5 / QFN10,AUDIO_BCLK,I2S/TDM bit clock,output,non-strap,U13 TLV320ADC6120 BCLK,MCU supplies audio serial clock
+GPIO6 / QFN11,AUDIO_FSYNC,I2S/TDM frame sync,output,non-strap,U13 TLV320ADC6120 FSYNC,MCU supplies audio frame clock
+GPIO7 / QFN12,AUDIO_SDOUT,I2S/TDM serial data,input,"non-strap; R37 33R",U13 TLV320ADC6120 SDOUT,Receive digitized microphone samples
+GPIO8 / QFN13,I2C_SDA,I2C0 SDA,bidirectional open-drain,"non-strap; R2 4.7k shared pull-up","TUSB320LAIRWBR 0x47; U7 BQ25611DRTWR 0x6B; U14 BQ27427YZFR 0x55; U6 BMP581 0x46; U8 MMC5983MA 0x30; U13 TLV320ADC6120 0x4E",Shared low-speed control bus
+GPIO9 / QFN14,I2C_SCL,I2C0 SCL,bidirectional open-drain,"non-strap; R1 4.7k shared pull-up","TUSB320LAIRWBR 0x47; U7 BQ25611DRTWR 0x6B; U14 BQ27427YZFR 0x55; U6 BMP581 0x46; U8 MMC5983MA 0x30; U13 TLV320ADC6120 0x4E",Shared low-speed control bus
+GPIO10 / QFN15,MOTION_SPI_SCK,SPI2 SCLK,output,"non-strap; R40 22R",U12 LSM6DSV320XTR,Dedicated motion SPI
+GPIO11 / QFN16,MOTION_SPI_MOSI,SPI2 MOSI,output,"non-strap; R42 22R",U12 LSM6DSV320XTR,Dedicated motion SPI
+GPIO12 / QFN17,MOTION_SPI_MISO,SPI2 MISO,input,"non-strap; R34 0R",U12 LSM6DSV320XTR,Dedicated motion SPI
+GPIO13 / QFN18,MOTION_SPI_CS_N,SPI2 CS,output,"non-strap; 10k sensor pull-up; R38 0R",U12 LSM6DSV320XTR,Dedicated motion SPI
+GPIO14 / QFN19,BAT_ADC_EN,GPIO / load-switch enable,output,"non-strap; R25 100k pulldown keeps U9 ON low at reset","U9 TPS22919DCKR ON; R25 to Earth",Enable battery divider only during measurement
+GPIO17 / QFN23,IMPACT_SPI_SCK,SPI3 SCLK,output,"non-strap; R29 22R",U11 IIS3DWB10ISTR,Dedicated impact SPI
+GPIO18 / QFN24,IMPACT_SPI_MOSI,SPI3 MOSI,output,"non-strap; R35 22R",U11 IIS3DWB10ISTR,Dedicated impact SPI
+GPIO19 / QFN25,USB_D-,native USB,bidirectional,"fixed USB; R5 22R",USB-C through ESD protection,Native programming/debug and USB data
+GPIO20 / QFN26,USB_D+,native USB,bidirectional,"fixed USB; R6 22R",USB-C through ESD protection,Native programming/debug and USB data
+GPIO21 / QFN27,IMPACT_SPI_MISO,SPI3 MISO,input,"non-strap; R36 0R",U11 IIS3DWB10ISTR,Dedicated impact SPI
+SPICS1 / QFN28 and GPIO33-GPIO37 / QFN38-QFN42,INTERNAL_PSRAM,octal PSRAM,dedicated,"board-level no-connect; package-internal",ESP32-S3R8 in-package PSRAM,Must never be allocated to peripherals
+VDD_SPI / QFN29,VDD_SPI,memory I/O power,power,"dedicated 3.3V output from U3; no separate +3V3 feed","U3 ESP32-S3R8 output; U4 W25Q128JVSIQ supply",Supply external flash and memory I/O domain
+SPIHD/SPIWP/SPICS0/SPICLK/SPIQ/SPID / QFN30-QFN35,FLASH_QSPI,QSPI flash,dedicated,memory interface,W25Q128JVSIQ,External 16MB application flash
+GPIO38 / QFN43,MOTION_INT1,GPIO interrupt,input,non-strap,"U12 LSM6DSV320XTR INT1; TP12",Main FIFO/data-ready interrupt
+GPIO39 / QFN44,JTAG_TCK,physical-pad JTAG,input,reserved,"J2 M50-3600542R SMD pin 4",Hardware recovery/debug
+GPIO40 / QFN45,JTAG_TDO,physical-pad JTAG,output,reserved,"J2 M50-3600542R SMD pin 6",Hardware recovery/debug
+GPIO41 / QFN47,JTAG_TDI,physical-pad JTAG,input,reserved,"J2 M50-3600542R SMD pin 8",Hardware recovery/debug
+GPIO42 / QFN48,JTAG_TMS,physical-pad JTAG,input,reserved,"J2 M50-3600542R SMD pin 2",Hardware recovery/debug
+GPIO43 / QFN49 (U0TXD),IMPACT_SPI_CS_N,SPI3 CS,output,"UART0 TX not used; 10k sensor pull-up; R32 0R",U11 IIS3DWB10ISTR,Dedicated impact SPI while retaining GPIO1 for ADC1
+GPIO44 / QFN50 (U0RXD),MMC_INT,GPIO interrupt,input,"UART0 RX not used; R19 100k pull-down",U8 MMC5983MA INT,Dedicated magnetometer interrupt
+GPIO45 / QFN51,VDD_SPI_STRAP,VDD_SPI voltage strap,input at reset,"R13 10k pull-down",strap only,Select 3.3V VDD_SPI
+GPIO46 / QFN52,STATUS_LED,addressable LED data,output after reset,"ROM-log/boot strap; internal weak pull-down; LED DIN high impedance",WS2812B-2020 LED1,Status indication without disturbing reset strap
+GPIO47 / QFN37 (SPICLK_P),MOTION_INT2,GPIO interrupt,input,non-strap,"U12 LSM6DSV320XTR INT2; TP13",Second main-motion event/high-g interrupt
+GPIO48 / QFN36 (SPICLK_N),POWER_ALERT_N,shared power interrupt / gauge wake,"input; controlled low pulse only for gauge wake if required","non-strap; R18 10k pull-up","TUSB320LAIRWBR INT_N; U7 BQ25611DRTWR INT; U14 BQ27427YZFR GPOUT",Wire-OR alert; firmware reads all three I2C devices after assertion

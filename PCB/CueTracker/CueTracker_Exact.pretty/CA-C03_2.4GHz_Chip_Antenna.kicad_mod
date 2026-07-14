@@ -1,0 +1,48 @@
+(footprint "CA-C03_2.4GHz_Chip_Antenna"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "CrossAir CA-C03 2.4GHz ceramic antenna, body 5.5x2.0x1.0mm. Vendor V02 test-board lands 1.2x2.0mm with 5.5mm center spacing. Pin1 marked RF feed; pin2 solder-fixing terminal. Courtyard encodes the asymmetric 10x7mm placement-clearance envelope only; copper/plane keepout must be implemented separately on PCB. Place at board edge with pin2 at edge.")
+  (tags "CA-C03 2.4GHz ceramic antenna keepout")
+
+  (property "Reference" "REF**" (at 0 -2 0)
+    (layer "F.SilkS")
+    (uuid "8c9f2fde-8bbd-448a-a8b2-055be96dadf0")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "CA-C03_2.4GHz_Chip_Antenna" (at 0 7.8 0)
+    (layer "F.Fab")
+    (uuid "3e555bab-d144-4011-beaa-7ecdb28769b8")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "1c70ef7d-0099-4fd2-b129-3e94c3db9ebc")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -6.65 -1.25)
+    (end 3.35 7)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "d092214f-7031-433b-9d40-03b47c22cb2e")
+  )
+
+  (pad "1" smd rect
+    (at -2.75 0)
+    (size 1.2 2)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "57473b04-745d-49ad-8d72-734dc07bfe97")
+  )
+
+  (pad "2" smd rect
+    (at 2.75 0)
+    (size 1.2 2)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "cc2eaf61-2209-481f-9829-ab2bbc0cde1f")
+  )
+
+)
