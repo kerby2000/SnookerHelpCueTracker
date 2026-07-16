@@ -828,13 +828,21 @@
         "uuid": "8bead730-f894-4b11-8a35-0ffa9b469d37"
       }
     ],
-    "used_designators": "J1-4,R1-45,R48,#FLG1-6,IC1,U1-14,MK1,D1-2,D4-5,#PWR1-101,ANT1,BOOT1,C1-60,C62-64,L1-5,AE1-2,LED1,RST1,TP1-13,TP15-19,Y1-2,FB1,SW1-2,BT1,JP1,Q1,TH1",
+    "used_designators": "IC1,R1-58,R63-72,#FLG1-10,J1-4,U1-18,U20-22,MK1-2,#PWR1-112,#PWR232-234,D1-5,ANT1,BOOT1,C1-69,C72-78,AE1-2,L1-5,LED1,RST1,TP1-19,Y1-2,FB1,SW1-2,BT1,JP1,Q1-2,TH1",
     "variants": []
   },
   "sheets": [
     [
       "8bead730-f894-4b11-8a35-0ffa9b469d37",
       "Root"
+    ],
+    [
+      "bcc53767-8b99-4d1b-9d94-3e6cbf29068f",
+      "Rear Main"
+    ],
+    [
+      "f99d8292-f510-452f-b53b-5a5eac42ac75",
+      "Front Sensor"
     ]
   ],
   "text_variables": {},

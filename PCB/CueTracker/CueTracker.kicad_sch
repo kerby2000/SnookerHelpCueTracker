@@ -1,24 +1,222 @@
 (kicad_sch
-	(version 20260101)
+	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid 03d9cb1d-595d-4f06-9ab9-9da9181798dc)
+	(uuid "03d9cb1d-595d-4f06-9ab9-9da9181798dc")
 	(paper "A4")
 	(lib_symbols)
+	(text "CueTracker hierarchical partition: rear electronics / front inertial sensors"
+		(exclude_from_sim no)
+		(at 40.64 43.18 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "e7075be2-5397-4b62-b22c-b987284c42c2")
+	)
+	(wire
+		(pts
+			(xy 121.92 55.88) (xy 182.88 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "14a80706-33e3-4588-811c-976a8cebea39")
+	)
+	(wire
+		(pts
+			(xy 121.92 71.12) (xy 182.88 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "15632c6c-2bc8-41cc-8f89-9f135528847b")
+	)
+	(wire
+		(pts
+			(xy 121.92 60.96) (xy 182.88 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "195cd860-d550-4824-9d5d-43111674e47f")
+	)
+	(wire
+		(pts
+			(xy 121.92 101.6) (xy 182.88 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1ddb41b5-21cf-4750-8b38-462bbdaa86a8")
+	)
+	(wire
+		(pts
+			(xy 121.92 66.04) (xy 182.88 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c1decbf-b46e-4741-845b-a352d69ead06")
+	)
+	(wire
+		(pts
+			(xy 121.92 96.52) (xy 182.88 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "552dcf54-4657-4b9c-bb4f-60f6367dce39")
+	)
+	(wire
+		(pts
+			(xy 121.92 111.76) (xy 182.88 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5e2c001d-cf8f-494d-a2c1-dc7c645903d8")
+	)
+	(wire
+		(pts
+			(xy 121.92 86.36) (xy 182.88 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a128c59-3f8a-4053-94a7-46741579a4ac")
+	)
+	(wire
+		(pts
+			(xy 121.92 116.84) (xy 182.88 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "76d8f83d-15f0-40e7-8d16-ddf540959692")
+	)
+	(wire
+		(pts
+			(xy 121.92 91.44) (xy 182.88 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7847013e-1bf7-4ffa-b337-b45445aafc34")
+	)
+	(wire
+		(pts
+			(xy 121.92 132.08) (xy 182.88 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7988ebdc-be10-4c9a-9138-74d7971ccaa5")
+	)
+	(wire
+		(pts
+			(xy 121.92 121.92) (xy 182.88 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "931d1c72-3859-430d-89f1-986baa83cd5e")
+	)
+	(wire
+		(pts
+			(xy 121.92 76.2) (xy 182.88 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "939ce17d-3ccd-4847-a5d7-9664610e98fa")
+	)
+	(wire
+		(pts
+			(xy 121.92 106.68) (xy 182.88 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a84b7ddb-d84d-4d4a-80a9-16f6050b8cf7")
+	)
+	(wire
+		(pts
+			(xy 121.92 137.16) (xy 182.88 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1879304-fead-4612-8db8-59acaaf4539e")
+	)
+	(wire
+		(pts
+			(xy 121.92 142.24) (xy 182.88 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b588c6fe-4fa3-4919-bb38-7b6ac316926d")
+	)
+	(wire
+		(pts
+			(xy 121.92 81.28) (xy 182.88 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cadff94f-67cd-452a-a88c-f3021084ad65")
+	)
+	(wire
+		(pts
+			(xy 121.92 127) (xy 182.88 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fd72bf39-6a28-4c05-94a9-8631b7ecfeaa")
+	)
 	(sheet
 		(at 40.64 50.8)
 		(size 81.28 101.6)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.0006)
-			(type default)
+			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0)
+			(color 0 0 0 0)
 		)
 		(uuid "bcc53767-8b99-4d1b-9d94-3e6cbf29068f")
-		(property "Sheet name" "Rear Main"
+		(property "Sheetname" "Rear Main"
 			(at 43.18 49.53 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26,8 +224,10 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheet file" "rear_main.kicad_sch"
+		(property "Sheetfile" "rear_main.kicad_sch"
 			(at 43.18 153.67 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -219,17 +419,23 @@
 	(sheet
 		(at 182.88 50.8)
 		(size 81.28 101.6)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.0006)
-			(type default)
+			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0)
+			(color 0 0 0 0)
 		)
 		(uuid "f99d8292-f510-452f-b53b-5a5eac42ac75")
-		(property "Sheet name" "Front Sensor"
+		(property "Sheetname" "Front Sensor"
 			(at 185.42 49.53 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -237,8 +443,10 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheet file" "front_sensor.kicad_sch"
+		(property "Sheetfile" "front_sensor.kicad_sch"
 			(at 185.42 153.67 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -427,207 +635,10 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 121.92 55.88) (xy 182.88 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "14a80706-33e3-4588-811c-976a8cebea39")
-	)
-	(wire
-		(pts
-			(xy 121.92 60.96) (xy 182.88 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "195cd860-d550-4824-9d5d-43111674e47f")
-	)
-	(wire
-		(pts
-			(xy 121.92 66.04) (xy 182.88 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4c1decbf-b46e-4741-845b-a352d69ead06")
-	)
-	(wire
-		(pts
-			(xy 121.92 71.12) (xy 182.88 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "15632c6c-2bc8-41cc-8f89-9f135528847b")
-	)
-	(wire
-		(pts
-			(xy 121.92 76.2) (xy 182.88 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "939ce17d-3ccd-4847-a5d7-9664610e98fa")
-	)
-	(wire
-		(pts
-			(xy 121.92 81.28) (xy 182.88 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cadff94f-67cd-452a-a88c-f3021084ad65")
-	)
-	(wire
-		(pts
-			(xy 121.92 86.36) (xy 182.88 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6a128c59-3f8a-4053-94a7-46741579a4ac")
-	)
-	(wire
-		(pts
-			(xy 121.92 91.44) (xy 182.88 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7847013e-1bf7-4ffa-b337-b45445aafc34")
-	)
-	(wire
-		(pts
-			(xy 121.92 96.52) (xy 182.88 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "552dcf54-4657-4b9c-bb4f-60f6367dce39")
-	)
-	(wire
-		(pts
-			(xy 121.92 101.6) (xy 182.88 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1ddb41b5-21cf-4750-8b38-462bbdaa86a8")
-	)
-	(wire
-		(pts
-			(xy 121.92 106.68) (xy 182.88 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a84b7ddb-d84d-4d4a-80a9-16f6050b8cf7")
-	)
-	(wire
-		(pts
-			(xy 121.92 111.76) (xy 182.88 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5e2c001d-cf8f-494d-a2c1-dc7c645903d8")
-	)
-	(wire
-		(pts
-			(xy 121.92 116.84) (xy 182.88 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "76d8f83d-15f0-40e7-8d16-ddf540959692")
-	)
-	(wire
-		(pts
-			(xy 121.92 121.92) (xy 182.88 121.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "931d1c72-3859-430d-89f1-986baa83cd5e")
-	)
-	(wire
-		(pts
-			(xy 121.92 127) (xy 182.88 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fd72bf39-6a28-4c05-94a9-8631b7ecfeaa")
-	)
-	(wire
-		(pts
-			(xy 121.92 132.08) (xy 182.88 132.08)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7988ebdc-be10-4c9a-9138-74d7971ccaa5")
-	)
-	(wire
-		(pts
-			(xy 121.92 137.16) (xy 182.88 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b1879304-fead-4612-8db8-59acaaf4539e")
-	)
-	(wire
-		(pts
-			(xy 121.92 142.24) (xy 182.88 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b588c6fe-4fa3-4919-bb38-7b6ac316926d")
-	)
-	(text "CueTracker hierarchical partition: rear electronics / front inertial sensors"
-		(exclude_from_sim no)
-		(at 40.64 43.18 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "e7075be2-5397-4b62-b22c-b987284c42c2")
-	)
 	(sheet_instances
 		(path "/"
 			(page "1")
 		)
-		(path "/03d9cb1d-595d-4f06-9ab9-9da9181798dc/bcc53767-8b99-4d1b-9d94-3e6cbf29068f"
-			(page "2")
-		)
-		(path "/03d9cb1d-595d-4f06-9ab9-9da9181798dc/f99d8292-f510-452f-b53b-5a5eac42ac75"
-			(page "3")
-		)
 	)
+	(embedded_fonts no)
 )
